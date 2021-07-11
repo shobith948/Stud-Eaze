@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1046878602455",
+    "project_id": "stud-eaze",
+    "storage_bucket": "stud-eaze.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1046878602455:android:16899a90b743c5cf255c92",
+        "android_client_info": {
+          "package_name": "com.example.studeaze"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1046878602455-3ae2i281p7cvdk3kubbcpinkajd9i4ut.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBShe5TEhAhkjmEIMsw-1dViCMN7VLoAH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1046878602455-3ae2i281p7cvdk3kubbcpinkajd9i4ut.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

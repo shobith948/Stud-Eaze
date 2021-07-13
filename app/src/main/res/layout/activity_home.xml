@@ -15,39 +15,38 @@
 
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="272dp"
-            android:layout_height="47dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
-
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Hi,"
-            android:textColor="#2c2a40"
-            android:textSize="35sp"
-            android:textStyle="bold" />
-
-        <TextView
             android:id="@+id/name"
-            android:layout_width="364dp"
-            android:layout_height="70dp"
+            android:layout_width="375dp"
+            android:layout_height="83dp"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="35dp"
             android:fontFamily="@font/poppins_semibold"
 
-            android:text="Shobith."
+            android:text="Hello,"
             android:textColor="@color/white"
             android:textSize="55sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp"
+            android:layout_width="394dp"
+            android:layout_height="42dp"
             android:layout_marginLeft="15dp"
-            android:text="Weclome to Stud Eaze." />
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Weclome to"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="388dp"
+            android:layout_height="68dp"
+            android:layout_marginLeft="15dp"
+
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Stud Eaze"
+            android:textSize="48sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -58,25 +57,11 @@
 
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/teacher"
             android:layout_width="260dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="45dp"
-            android:background="@drawable/home_btn"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Admin"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#2C2A40"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="260dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="77dp"
             android:background="@drawable/home_btn"
             android:fontFamily="@font/poppins_semibold"
             android:text="Teacher"
@@ -86,7 +71,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/std_log"
             android:layout_width="260dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"

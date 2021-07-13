@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudEaze">
-        <activity android:name=".reg_student">
-        </activity>
+        <activity android:name=".stud_dash"></activity>
+        <activity android:name=".reg_student"></activity>
         <activity android:name=".login" />
-        <activity android:name=".home" />
+        <activity android:name=".admin" />
         <activity android:name=".teach_login" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".admin">
+        <activity android:name=".home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

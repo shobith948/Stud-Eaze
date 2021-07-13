@@ -4,77 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admin">
+    tools:context=".stud_dash">
 
     <LinearLayout
-        android:id="@+id/admin_head"
+        android:id="@+id/stud_head"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:background="@drawable/home_design"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/admin_htext"
-            android:layout_width="wrap_content"
-            android:layout_height="207dp"
+            android:id="@+id/text_dash"
+            android:layout_width="70dp"
+            android:layout_height="53dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="20dp"
 
             android:fontFamily="@font/poppins_semibold"
-            android:text="Admin Dashboard"
+            android:text="Hi, "
             android:textColor="#2c2a40"
             android:textSize="35sp"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="371dp"
+            android:layout_height="68dp"
+            android:layout_marginLeft="15dp"
+
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Shobith"
+            android:textColor="#fff"
+            android:textSize="45sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="322dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Welcome to student dashboard"
+            android:textColor="#2c2a40"
+            android:padding="-5dp"
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_below="@+id/admin_head"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-
-
-        <Button
-            android:id="@+id/remove_std"
-            android:layout_width="260dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="45dp"
-            android:background="@drawable/home_btn"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Remove Student"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#2C2A40"
-            android:textSize="24sp" />
+        android:orientation="vertical"
+        android:layout_below="@id/stud_head">
 
         <Button
-            android:id="@+id/add_teacher"
+            android:id="@+id/View_attendence"
             android:layout_width="260dp"
             android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="45dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="55dp"
             android:background="@drawable/home_btn"
             android:fontFamily="@font/poppins_semibold"
-            android:text="Add Teacher"
+            android:text="view attendence"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="#2C2A40"
             android:textSize="24sp" />
         <Button
-            android:id="@+id/remove_teacher"
+            android:id="@+id/View_class"
             android:layout_width="260dp"
             android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="60dp"
             android:layout_marginTop="45dp"
             android:background="@drawable/home_btn"
             android:fontFamily="@font/poppins_semibold"
-            android:text="Remove Teacher"
+            android:text="Time table "
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="#2C2A40"
             android:textSize="24sp" />
+
     </LinearLayout>
+
 </RelativeLayout>

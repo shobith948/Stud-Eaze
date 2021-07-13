@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/reg_text"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="160dp"
         android:orientation="vertical">
 
         <TextView
@@ -36,6 +36,7 @@
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/name"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_marginLeft="25dp"
@@ -54,20 +55,41 @@
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/textView6"
+            android:id="@+id/usn"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/view"
+            android:inputType="textCapCharacters"
             android:drawableStart="@drawable/ic_baseline_email_24"
             android:ems="10"
             android:fontFamily="@font/poppins_light"
             android:hint="Usn"
             android:includeFontPadding="true"
-            android:inputType="textPersonName"
             android:lineSpacingExtra="15dp"
             android:paddingStart="15dp"
+            android:textAllCaps="true"
+            android:textColor="#AA00FF"
+            android:textColorHint="#AA00FF"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/view"
+            android:drawableStart="@drawable/ic_baseline_local_phone_24"
+            android:ems="10"
+            android:fontFamily="@font/poppins_light"
+            android:hint="phone"
+            android:includeFontPadding="true"
+            android:inputType="phone"
+            android:lineSpacingExtra="15dp"
+            android:paddingStart="15dp"
+            android:phoneNumber="true"
             android:textColor="#AA00FF"
             android:textColorHint="#AA00FF"
             android:textSize="24sp" />
@@ -91,7 +113,7 @@
             android:background="@drawable/home_btn" />
 
         <EditText
-            android:id="@+id/textView8"
+            android:id="@+id/email"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_marginLeft="25dp"
@@ -102,7 +124,7 @@
             android:fontFamily="@font/poppins_light"
             android:hint="Email"
             android:includeFontPadding="true"
-            android:inputType="textPersonName"
+            android:inputType="textPersonName|textEmailAddress"
             android:lineSpacingExtra="15dp"
             android:paddingStart="15dp"
             android:textColor="#AA00FF"
@@ -110,13 +132,13 @@
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/textView10"
+            android:id="@+id/paswword"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/view"
-            android:drawableStart="@drawable/ic_baseline_email_24"
+            android:drawableStart="@drawable/ic_baseline_lock_24"
             android:ems="10"
             android:fontFamily="@font/poppins_light"
             android:hint="Password"
@@ -129,13 +151,13 @@
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/textView11"
+            android:id="@+id/cpassword"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/view"
-            android:drawableStart="@drawable/ic_baseline_email_24"
+            android:drawableStart="@drawable/ic_baseline_lock_24"
             android:ems="10"
             android:fontFamily="@font/poppins_light"
             android:hint="Confirm Pasword"
@@ -152,7 +174,7 @@
             android:layout_width="150dp"
             android:layout_height="55dp"
             android:layout_marginLeft="220dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/login_btn"
             android:fontFamily="@font/poppins_semibold"
             android:text="Register"

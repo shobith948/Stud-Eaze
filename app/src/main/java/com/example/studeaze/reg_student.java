@@ -106,7 +106,7 @@ public class reg_student extends AppCompatActivity {
                 String email =Inputemail.getText().toString();
                 String password =InputPassword.getText().toString();
                 String Cpassword =CInputPassword.getText().toString();
-                long sem = semester;
+                long sem = semester+1;
 
                 if(TextUtils.isEmpty(name))
                 {
@@ -169,36 +169,36 @@ public class reg_student extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot)
                     {
-                        if(!(dataSnapshot.child("Users").child(usn).exists()))
-                            if(!(dataSnapshot.child("Users").child(phone).exists()))
-                        {
-                            HashMap<String, Object> userdataMap =new HashMap<>();
-                            userdataMap.put("phone",phone);
-                            userdataMap.put("password",password);
-                            userdataMap.put("name",name);
-                            userdataMap.put("usn" , usn);
-                            userdataMap.put("email" , email);
-                            userdataMap.put("semester", sem);
+                        if(!(dataSnapshot.child("Users").child(usn).exists())) {
+                            if (!(dataSnapshot.child("Users").child(usn).child(phone).exists())) {
+                                HashMap<String, Object> userdataMap = new HashMap<>();
+                                userdataMap.put("phone", phone);
+                                userdataMap.put("password", password);
+                                userdataMap.put("name", name);
+                                userdataMap.put("usn", usn);
+                                userdataMap.put("email", email);
+                                userdataMap.put("semester", sem);
 
-                            RootRef.child("Users").child(usn).updateChildren(userdataMap)
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task)
-                                        {
-                                            if(task.isSuccessful())
-                                            {
-                                                Toast.makeText(reg_student.this, "Congragulation your account  created successfull", Toast.LENGTH_SHORT).show();
+                                RootRef.child("Users").child(usn).updateChildren(userdataMap)
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isSuccessful()) {
+                                                    Toast.makeText(reg_student.this, "Congragulation your account  created successfull", Toast.LENGTH_SHORT).show();
 
-                                                Intent intent =new Intent(reg_student.this , login.class);
-                                                startActivity(intent);
+                                                    Intent intent = new Intent(reg_student.this, login.class);
+                                                    startActivity(intent);
+                                                } else {
+                                                    Toast.makeText(reg_student.this, "Network Error", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(reg_student.this, "Try again", Toast.LENGTH_SHORT).show();
+                                                }
                                             }
-                                            else
-                                            {
-                                                Toast.makeText(reg_student.this, "Network Error", Toast.LENGTH_SHORT).show();
-                                                Toast.makeText(reg_student.this, "Try again", Toast.LENGTH_SHORT).show();
-                                            }
-                                        }
-                                    });
+                                        });
+                            }
+                            else{
+                                Toast.makeText(reg_student.this, "This "+usn+" already exists", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(reg_student.this, "Please Login", Toast.LENGTH_SHORT).show();
+                            }
                         }
                         else
                         if((dataSnapshot.child("Users").child(usn).exists()))

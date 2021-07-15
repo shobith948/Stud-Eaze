@@ -47,7 +47,7 @@ public class reg_student extends AppCompatActivity {
         Inputusn = findViewById(R.id.usn);
         InputPhonenumber = findViewById(R.id.phone);
         Inputemail = findViewById(R.id.email);
-        InputPassword = findViewById(R.id.paswword);
+        InputPassword = findViewById(R.id.password);
         CInputPassword = findViewById(R.id.cpassword);
         CreateAccountButton = findViewById(R.id.reg_s_btn);
         Spinner myspinner = (Spinner) findViewById(R.id.spinner1);
@@ -143,7 +143,7 @@ public class reg_student extends AppCompatActivity {
                     Toast.makeText(reg_student.this, "Confirm Password does not match", Toast.LENGTH_SHORT).show();
                 }
                 else
-                if(TextUtils.getTrimmedLength(phone) < 6)
+                if(TextUtils.getTrimmedLength(password) < 6)
                 {
                     Toast.makeText(reg_student.this, "Password must be greater than 6 characters", Toast.LENGTH_SHORT).show();
                 }

@@ -1,15 +1,30 @@
 package com.example.studeaze;
 
-public class Users
+public class students
 {
-    private String name, password, email ,usn  ,branch ,phone;
+    private String name;
+    private String password;
+    private String email;
+    private String usn;
+    private String branch;
+    private String phone;
+
+    public String getSubcode() {
+        return subcode;
+    }
+
+    public void setSubcode(String subcode) {
+        this.subcode = subcode;
+    }
+
+    private String subcode;
     private long semester;
 
-    public  Users(){
+    public students(){
 
     }
 
-    public Users(String name, String password, String email, String usn , long semester , String branch, String phone)
+    public students(String name, String password, String email, String usn , long semester , String branch, String phone)
     {
         this.name = name;
         this.password = password;

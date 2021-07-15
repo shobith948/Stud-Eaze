@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.wifi.hotspot2.pps.HomeSp;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -75,10 +74,10 @@ public class home extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.child("").child(usn).exists()) {
-                    Users userData = dataSnapshot.child("Users").child(usn).getValue(Users.class);
+                    students studentsData = dataSnapshot.child("students").child(usn).getValue(students.class);
 
-                    if (userData.getUsn().equals(usn)) {
-                        if (userData.getPassword().equals(password)) {
+                    if (studentsData.getUsn().equals(usn)) {
+                        if (studentsData.getPassword().equals(password)) {
 
                             Intent intent = new Intent(home.this, stud_dash.class);
                             startActivity(intent);

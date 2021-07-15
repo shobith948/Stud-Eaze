@@ -155,11 +155,11 @@ public class reg_student extends AppCompatActivity {
                 else
                 {
 
-                    ValidatePhoneNumber(name, phone, password , usn , email , sem);
+                    ValidateUsn(name, phone, password , usn , email , sem);
                 }
             }
 
-            private void ValidatePhoneNumber(final String name,final String phone, final String password, final String usn, final String email, long sem)
+            private void ValidateUsn(final String name,final String phone, final String password, final String usn, final String email, long sem)
             {
                 final DatabaseReference RootRef;
                 RootRef= FirebaseDatabase.getInstance().getReference();
@@ -169,17 +169,17 @@ public class reg_student extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot)
                     {
-                        if(!(dataSnapshot.child("Users").child(usn).exists())) {
-                            if (!(dataSnapshot.child("Users").child(usn).child(phone).exists())) {
-                                HashMap<String, Object> userdataMap = new HashMap<>();
-                                userdataMap.put("phone", phone);
-                                userdataMap.put("password", password);
-                                userdataMap.put("name", name);
-                                userdataMap.put("usn", usn);
-                                userdataMap.put("email", email);
-                                userdataMap.put("semester", sem);
+                        if(!(dataSnapshot.child("students").child(usn).exists())) {
+                            if (!(dataSnapshot.child("students").child(usn).child(phone).exists())) {
+                                HashMap<String, Object> studentsdataMap = new HashMap<>();
+                                studentsdataMap.put("phone", phone);
+                                studentsdataMap.put("password", password);
+                                studentsdataMap.put("name", name);
+                                studentsdataMap.put("usn", usn);
+                                studentsdataMap.put("email", email);
+                                studentsdataMap.put("semester", sem);
 
-                                RootRef.child("Users").child(usn).updateChildren(userdataMap)
+                                RootRef.child("students").child(usn).updateChildren(studentsdataMap)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
@@ -201,7 +201,7 @@ public class reg_student extends AppCompatActivity {
                             }
                         }
                         else
-                        if((dataSnapshot.child("Users").child(usn).exists()))
+                        if((dataSnapshot.child("students").child(usn).exists()))
                         {
                             Toast.makeText(reg_student.this, "This "+usn+" already exists", Toast.LENGTH_SHORT).show();
                             Toast.makeText(reg_student.this, "Please Login", Toast.LENGTH_SHORT).show();
@@ -210,7 +210,7 @@ public class reg_student extends AppCompatActivity {
                         }
 
                         else
-                        if((dataSnapshot.child("Users").child(phone).exists()))
+                        if((dataSnapshot.child("students").child(phone).exists()))
                         {
                             Toast.makeText(reg_student.this, "This "+phone+" already exists", Toast.LENGTH_SHORT).show();
                             Toast.makeText(reg_student.this, "Please Login", Toast.LENGTH_SHORT).show();

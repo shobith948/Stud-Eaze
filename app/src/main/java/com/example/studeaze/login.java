@@ -9,7 +9,6 @@ import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -41,6 +40,7 @@ public class login extends AppCompatActivity {
         userusn = findViewById(R.id.usn);
         userpassword = findViewById(R.id.pass);
 
+
         String s= "Student login";
         SpannableString ss1=  new SpannableString(s);
         ss1.setSpan(new RelativeSizeSpan(1.5f), 0,8, 0); // set size
@@ -52,7 +52,13 @@ public class login extends AppCompatActivity {
 
 
         loginbtn.setOnClickListener(v -> {
-            LoginUser();
+            if(userusn.getText().toString().equals("admin") && userpassword.getText().toString().equals("admin123")){
+                Intent intent = new Intent(login.this,admin.class);
+           startActivity(intent);
+            }else {
+                LoginUser();
+
+            }
         });
 
         reg.setOnClickListener(v -> {
@@ -100,9 +106,9 @@ public class login extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                if (dataSnapshot.child("Users").child(usn).exists())//error here
+                if (dataSnapshot.child("students").child(usn).exists())
                 {
-                    Users userData = dataSnapshot.child("Users").child(usn).getValue(Users.class);
+                    students userData = dataSnapshot.child("students").child(usn).getValue(students.class);
 
                     if (userData.getUsn().equals(usn))
                     {

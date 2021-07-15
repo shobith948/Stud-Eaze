@@ -98,7 +98,7 @@ public class add_teacher extends AppCompatActivity {
         String email = InputTemail.getText().toString();
         String password = InputTpassword.getText().toString();
         String Cpassword =inputCTpassword.getText().toString();
-        long sem = this.semester +1;
+        long sem = semester +1;
 
         if(TextUtils.isEmpty(name))
         {
@@ -147,7 +147,7 @@ public class add_teacher extends AppCompatActivity {
         else
         {
 
-            ValidateSubcode(name, phone, password , subcode , email , semester);
+            ValidateSubcode(name, phone, password , subcode , email , sem);
         }
     }
     private void ValidateSubcode(final String name,final String phone, final String password, final String subcode, final String email, long sem)
@@ -192,7 +192,7 @@ public class add_teacher extends AppCompatActivity {
                     }
                 }
                 else
-                if((dataSnapshot.child("students").child(subcode).exists()))
+                if((dataSnapshot.child("teachers").child(subcode).exists()))
                 {
                     Toast.makeText(add_teacher.this, "This "+subcode+" already exists", Toast.LENGTH_SHORT).show();
                     Toast.makeText(add_teacher.this, "Please Login", Toast.LENGTH_SHORT).show();

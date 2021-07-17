@@ -162,20 +162,20 @@ public class add_teacher extends AppCompatActivity {
             {
                 if(!(dataSnapshot.child("teachers").child(subcode).exists())) {
                     if (!(dataSnapshot.child("teachers").child(subcode).child(phone).exists())) {
-                        HashMap<String, Object> studentsdataMap = new HashMap<>();
-                        studentsdataMap.put("phone", phone);
-                        studentsdataMap.put("password", password);
-                        studentsdataMap.put("name", name);
-                        studentsdataMap.put("subcode", subcode);
-                        studentsdataMap.put("email", email);
-                        studentsdataMap.put("semester", sem);
+                        HashMap<String, Object> teachersdataMap = new HashMap<>();
+                        teachersdataMap.put("phone", phone);
+                        teachersdataMap.put("password", password);
+                        teachersdataMap.put("name", name);
+                        teachersdataMap.put("subcode", subcode);
+                        teachersdataMap.put("email", email);
+                        teachersdataMap.put("semester", sem);
 
-                        RootRef.child("teachers").child(subcode).updateChildren(studentsdataMap)
+                        RootRef.child("teachers").child(subcode).updateChildren(teachersdataMap)
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
-                                            Toast.makeText(add_teacher.this, "Added successfull", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(add_teacher.this, "Added successfully", Toast.LENGTH_SHORT).show();
 
                                             Intent intent = new Intent(add_teacher.this, admin.class);
                                             startActivity(intent);
@@ -189,6 +189,8 @@ public class add_teacher extends AppCompatActivity {
                     else{
                         Toast.makeText(add_teacher.this, "This "+phone+" already exists", Toast.LENGTH_SHORT).show();
                         Toast.makeText(add_teacher.this, "Please Login", Toast.LENGTH_SHORT).show();
+                        Intent intent =new Intent(add_teacher.this , admin.class);
+                        startActivity(intent);
                     }
                 }
                 else

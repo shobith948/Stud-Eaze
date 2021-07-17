@@ -8,15 +8,6 @@ public class students
     private String usn;
     private String branch;
     private String phone;
-
-    public String getSubcode() {
-        return subcode;
-    }
-
-    public void setSubcode(String subcode) {
-        this.subcode = subcode;
-    }
-
     private String subcode;
     private long semester;
 
@@ -24,12 +15,13 @@ public class students
 
     }
 
-    public students(String name, String password, String email, String usn , long semester , String branch, String phone)
+    public students(String name, String password,String subcode, String email, String usn , long semester , String branch, String phone)
     {
         this.name = name;
         this.password = password;
         this.email = email;
         this.usn = usn;
+        this.subcode = subcode;
         this.semester = semester;
         this.branch = branch;
         this.phone = phone;
@@ -60,7 +52,7 @@ public class students
         return email;
     }
 
-    public void setEmail(String address)
+    public void setEmail(String email)
     {
         this.email = email;
     }
@@ -71,6 +63,14 @@ public class students
 
     public void setUsn(String usn) {
         this.usn = usn;
+    }
+
+    public String getsubcode() {
+        return subcode;
+    }
+
+    public void setsubcode(String subcode) {
+        this.subcode = subcode;
     }
 
     public long getSemester() {

@@ -39,6 +39,7 @@ public class login extends AppCompatActivity {
         loginbtn = findViewById(R.id.s_login);
         userusn = findViewById(R.id.usn);
         userpassword = findViewById(R.id.pass);
+        reg = findViewById(R.id.reg);
 
 
         String s= "Student login";
@@ -48,16 +49,17 @@ public class login extends AppCompatActivity {
         TextView tv= (TextView) findViewById(R.id.textView7);
         tv.setText(ss1);
 
-        reg = findViewById(R.id.reg);
-
 
         loginbtn.setOnClickListener(v -> {
             if(userusn.getText().toString().equals("admin") && userpassword.getText().toString().equals("admin123")){
+                Paper.book().write("usn", userusn.getText().toString());
+                Paper.book().write("password", userpassword.getText().toString());
+                Toast.makeText(login.this, "You are now an Admin", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(login.this,admin.class);
-           startActivity(intent);
-            }else {
+                startActivity(intent);
+            }
+            else {
                 LoginUser();
-
             }
         });
 
@@ -88,7 +90,7 @@ public class login extends AppCompatActivity {
         else
         if(TextUtils.getTrimmedLength(usn) < 9)
         {
-            Toast.makeText(login.this, "Invalid Phone Number", Toast.LENGTH_SHORT).show();
+            Toast.makeText(login.this, "Invalid USN", Toast.LENGTH_SHORT).show();
         }
         else
         {

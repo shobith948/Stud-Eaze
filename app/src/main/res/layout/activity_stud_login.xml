@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
-        android:layout_height="400dp"
+        android:layout_height="450dp"
         android:background="@drawable/stud"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
@@ -18,7 +18,7 @@
 
         <TextView
             android:id="@+id/textView5"
-            android:layout_width="272dp"
+            android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:fontFamily="@font/poppins_semibold"
@@ -28,10 +28,11 @@
             android:textStyle="bold" />
 
     </LinearLayout>
-   <LinearLayout
+
+    <LinearLayout
         android:id="@+id/login_bottom"
-        android:layout_width="416dp"
-        android:layout_height="370dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
         android:background="@drawable/card_view"
         android:orientation="vertical"
         android:layout_alignParentBottom="true"
@@ -43,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="Student "
             android:textColor="#2c2a40"
@@ -58,16 +59,18 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/view"
             android:drawableStart="@drawable/ic_baseline_email_24"
+            android:drawablePadding="10dp"
             android:ems="10"
             android:fontFamily="@font/poppins_light"
-            android:hint="Enter usn"
+            android:hint="Enter USN"
             android:textAllCaps="true"
             android:includeFontPadding="true"
             android:inputType="textPersonName"
             android:paddingStart="15dp"
             android:textAlignment="inherit"
             android:textColor="#AA00FF"
-            android:textColorHint="#AA00FF" />
+            android:textColorHint="#AA00FF"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/pass"
@@ -77,6 +80,7 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/view"
             android:drawableStart="@drawable/ic_baseline_security_24"
+            android:drawablePadding="10dp"
             android:ems="10"
             android:fontFamily="@font/poppins_light"
             android:hint="Password"
@@ -84,7 +88,9 @@
             android:inputType="textPassword"
             android:paddingStart="15dp"
             android:textAlignment="inherit"
-            android:textColorHint="#AA00FF" />
+            android:textColor="#AA00FF"
+            android:textColorHint="#AA00FF"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/textView"
@@ -93,14 +99,14 @@
             android:layout_marginLeft="40dp"
             android:fontFamily="@font/poppins_light"
             android:layout_marginTop="10dp"
-            android:text="forgot pasword?" />
+            android:text="Forgot Password ?" />
 
 
         <Button
             android:id="@+id/s_login"
             android:layout_width="150dp"
             android:layout_height="55dp"
-            android:layout_marginLeft="220dp"
+            android:layout_marginLeft="225dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/login_btn"
             android:fontFamily="@font/poppins_semibold"
@@ -119,19 +125,17 @@
                android:layout_height="wrap_content"
                android:layout_marginLeft="110dp"
                android:fontFamily="@font/poppins_light"
-               android:text="click here to "
+               android:text="Click here to "
                android:textSize="18sp" />
 
            <TextView
                android:id="@+id/reg"
-               android:layout_width="277dp"
+               android:layout_width="150dp"
                android:layout_height="wrap_content"
                android:textColor="@color/ddark"
                android:fontFamily="@font/poppins_semibold"
                android:text="Register"
                android:textSize="20sp" />
        </LinearLayout>
-
-
-   </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>

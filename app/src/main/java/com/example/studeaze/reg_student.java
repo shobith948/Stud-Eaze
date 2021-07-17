@@ -184,7 +184,7 @@ public class reg_student extends AppCompatActivity {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if (task.isSuccessful()) {
-                                                    Toast.makeText(reg_student.this, "Congragulation your account  created successfull", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(reg_student.this, "Congratulations your account is created successfully", Toast.LENGTH_SHORT).show();
 
                                                     Intent intent = new Intent(reg_student.this, login.class);
                                                     startActivity(intent);
@@ -196,7 +196,7 @@ public class reg_student extends AppCompatActivity {
                                         });
                             }
                             else{
-                                Toast.makeText(reg_student.this, "This "+usn+" already exists", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(reg_student.this, "This "+phone+" already exists", Toast.LENGTH_SHORT).show();
                                 Toast.makeText(reg_student.this, "Please Login", Toast.LENGTH_SHORT).show();
                             }
                         }

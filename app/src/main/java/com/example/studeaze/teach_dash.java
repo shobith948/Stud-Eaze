@@ -46,6 +46,14 @@ public class teach_dash extends AppCompatActivity {
             }
         }
 
+        notice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(teach_dash.this, add_notice.class);
+                startActivity(intent);
+            }
+        });
+
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

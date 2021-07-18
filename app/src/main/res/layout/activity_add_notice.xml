@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".add_notice">
+
+    <LinearLayout
+        android:id="@+id/notice_head"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/home_design"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/notice_heading"
+            android:layout_width="400dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Add New Notice"
+            android:textColor="#2c2a40"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/notice_head"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/topic"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100dp"
+            android:ems="10"
+            android:fontFamily="@font/poppins_light"
+            android:hint="Topic"
+            android:includeFontPadding="true"
+            android:inputType="textPersonName"
+            android:lineSpacingExtra="15dp"
+            android:textAlignment="center"
+            android:textColor="#AA00FF"
+            android:textColorHint="#AA00FF"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/details"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="80dp"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:fontFamily="@font/poppins_light"
+            android:hint="Details"
+            android:includeFontPadding="true"
+            android:lineSpacingExtra="15dp"
+            android:textAlignment="center"
+            android:textColor="#AA00FF"
+            android:textColorHint="#AA00FF"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/notice_date"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="80dp"
+            android:ems="10"
+            android:fontFamily="@font/poppins_light"
+            android:hint="Date"
+            android:includeFontPadding="true"
+            android:inputType="date"
+            android:lineSpacingExtra="15dp"
+            android:textAlignment="center"
+            android:textColor="#AA00FF"
+            android:textColorHint="#AA00FF"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/add_notice_btn"
+            android:layout_width="400dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/login_btn"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Add Notice"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

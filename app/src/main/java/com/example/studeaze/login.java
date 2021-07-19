@@ -25,7 +25,7 @@ import io.paperdb.Paper;
 public class login extends AppCompatActivity {
 
     TextView reg;
-    private EditText userusn , userpassword;
+    private EditText Susn, Spassword;
     Button loginbtn;
 
     @Override
@@ -37,8 +37,8 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_stud_login);
         TextView textView = (TextView) findViewById(R.id.textView7);
         loginbtn = findViewById(R.id.s_login);
-        userusn = findViewById(R.id.usn);
-        userpassword = findViewById(R.id.pass);
+        Susn = findViewById(R.id.usn);
+        Spassword = findViewById(R.id.pass);
 
 
         String s= "Student login";
@@ -52,28 +52,29 @@ public class login extends AppCompatActivity {
 
 
         loginbtn.setOnClickListener(v -> {
-            if(userusn.getText().toString().equals("admin") && userpassword.getText().toString().equals("admin123")){
+            if(Susn.getText().toString().equals("admin") && Spassword.getText().toString().equals("admin123")){
+                Toast.makeText(login.this, "your now an admin", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(login.this,admin.class);
-           startActivity(intent);
+                startActivity(intent);
             }else {
-                LoginUser();
+                LoginStudent();
 
             }
         });
 
         reg.setOnClickListener(v -> {
-            regUser();
+            regStudent();
         });
     }
 
-    public  void regUser(){
+    public  void regStudent(){
         Intent intent = new Intent(this,reg_student.class);
         startActivity(intent);
     }
-    private void LoginUser()
+    private void LoginStudent()
     {
-        String usn = userusn.getText().toString();
-        String password= userpassword.getText().toString();
+        String usn = Susn.getText().toString();
+        String password= Spassword.getText().toString();
 
 
         if(TextUtils.isEmpty(usn))
@@ -92,7 +93,7 @@ public class login extends AppCompatActivity {
         }
         else
         {
-            AllowAccess(usn, password);
+            AllowAccess(usn,password);
         }
     }
 

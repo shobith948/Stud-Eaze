@@ -50,24 +50,25 @@
             android:textSize="36sp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/usn"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/view"
-            android:drawableStart="@drawable/ic_baseline_email_24"
-            android:ems="10"
-            android:fontFamily="@font/poppins_light"
-            android:hint="Enter usn"
-            android:textAllCaps="true"
-            android:includeFontPadding="true"
-            android:inputType="textPersonName"
-            android:paddingStart="15dp"
-            android:textAlignment="inherit"
-            android:textColor="#AA00FF"
-            android:textColorHint="#AA00FF" />
+       <EditText
+           android:id="@+id/usn"
+           android:layout_width="350dp"
+           android:layout_height="50dp"
+           android:layout_marginLeft="25dp"
+           android:layout_marginTop="25dp"
+           android:background="@drawable/view"
+           android:inputType="textCapCharacters"
+           android:drawableStart="@drawable/ic_baseline_email_24"
+           android:ems="10"
+           android:fontFamily="@font/poppins_light"
+           android:hint="Enter usn"
+           android:includeFontPadding="true"
+           android:lineSpacingExtra="15dp"
+           android:paddingStart="15dp"
+           android:textAllCaps="true"
+           android:textColor="#AA00FF"
+           android:textColorHint="#AA00FF"
+           android:textSize="24sp" />
 
         <EditText
             android:id="@+id/pass"

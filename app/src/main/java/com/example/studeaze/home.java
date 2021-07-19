@@ -31,14 +31,29 @@ public class home extends AppCompatActivity {
         teacher =(Button) findViewById(R.id.teacher);
         Paper.init(this);
 
-        String UserPhoneKey = Paper.book().read("usn");
+        String UserUsnKey = Paper.book().read("usn");
         String UserPasswordKey = Paper.book().read("password");
+        String TeacherSubKey = Paper.book().read("subcode");
+        String TeacherPasswordKey = Paper.book().read("t_password");
 
-        if (UserPhoneKey != "" && UserPasswordKey != "")
+        if (UserUsnKey != "" && UserPasswordKey != "")
         {
-            if(!TextUtils.isEmpty(UserPhoneKey) && !TextUtils.isEmpty(UserPasswordKey))
+            if(!TextUtils.isEmpty(UserUsnKey) && !TextUtils.isEmpty(UserPasswordKey))
             {
-                AllowAccess(UserPhoneKey, UserPasswordKey);
+                AllowAccess(UserUsnKey, UserPasswordKey);
+
+            }
+        }
+        if (TeacherSubKey != "" && TeacherPasswordKey != "")
+        {
+            if(!TextUtils.isEmpty(TeacherSubKey) && !TextUtils.isEmpty(TeacherPasswordKey))
+            {
+                if(TeacherSubKey.equals("admin") && TeacherPasswordKey.equals("admin123")){
+                    AdminAllowAccess();
+                }
+                else {
+                    TeacherAllowAccess(TeacherSubKey, TeacherPasswordKey);
+                }
 
             }
         }
@@ -56,6 +71,7 @@ public class home extends AppCompatActivity {
             }
         });
     }
+
     public  void teach_login(){
         Intent intent = new Intent(this,teach_login.class);
         startActivity(intent);
@@ -73,7 +89,7 @@ public class home extends AppCompatActivity {
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.child("").child(usn).exists()) {
+                if (dataSnapshot.child("students").child(usn).exists()) {
                     students studentsData = dataSnapshot.child("students").child(usn).getValue(students.class);
 
                     if (studentsData.getUsn().equals(usn)) {
@@ -91,10 +107,47 @@ public class home extends AppCompatActivity {
             }
 
 
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
     }
 
+    private void AdminAllowAccess() {
+        Intent intent = new Intent(home.this, admin.class);
+        startActivity(intent);
+    }
+
+    private void TeacherAllowAccess(final String s_code, final String T_pass) {
+        final DatabaseReference RootRef;
+        RootRef = FirebaseDatabase.getInstance().getReference();
+
+        RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.child("teachers").child(s_code).exists()) {
+                    students teachersData = dataSnapshot.child("teachers").child(s_code).getValue(students.class);
+
+                    if (teachersData.getsubcode().equals(s_code)) {
+                        if (teachersData.getPassword().equals(T_pass)) {
+
+                            Intent intent = new Intent(home.this, teach_dash.class);
+                            startActivity(intent);
+                        }
+                    } else {
+                        Toast.makeText(home.this, "Retry Login", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(home.this, "Account with " + s_code + " does not exist", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+    }
 }

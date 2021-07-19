@@ -162,15 +162,15 @@ public class add_teacher extends AppCompatActivity {
             {
                 if(!(dataSnapshot.child("teachers").child(subcode).exists())) {
                     if (!(dataSnapshot.child("teachers").child(subcode).child(phone).exists())) {
-                        HashMap<String, Object> studentsdataMap = new HashMap<>();
-                        studentsdataMap.put("phone", phone);
-                        studentsdataMap.put("password", password);
-                        studentsdataMap.put("name", name);
-                        studentsdataMap.put("subcode", subcode);
-                        studentsdataMap.put("email", email);
-                        studentsdataMap.put("semester", sem);
+                        HashMap<String, Object> TeachersdataMap = new HashMap<>();
+                        TeachersdataMap.put("phone", phone);
+                        TeachersdataMap.put("password", password);
+                        TeachersdataMap.put("name", name);
+                        TeachersdataMap.put("subcode", subcode);
+                        TeachersdataMap.put("email", email);
+                        TeachersdataMap.put("semester", sem);
 
-                        RootRef.child("teachers").child(subcode).updateChildren(studentsdataMap)
+                        RootRef.child("teachers").child(subcode).updateChildren(TeachersdataMap)
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
@@ -192,7 +192,7 @@ public class add_teacher extends AppCompatActivity {
                     }
                 }
                 else
-                if((dataSnapshot.child("students").child(subcode).exists()))
+                if((dataSnapshot.child("teachers").child(subcode).exists()))
                 {
                     Toast.makeText(add_teacher.this, "This "+subcode+" already exists", Toast.LENGTH_SHORT).show();
                     Toast.makeText(add_teacher.this, "Please Login", Toast.LENGTH_SHORT).show();

@@ -35,13 +35,26 @@
         android:orientation="vertical">
 
 
+        <Button
+            android:id="@+id/notice"
+            android:layout_width="260dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/home_btn"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Add notice"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#2C2A40"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/remove_std"
             android:layout_width="260dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="25dp"
             android:background="@drawable/home_btn"
             android:fontFamily="@font/poppins_semibold"
             android:text="Remove Student"
@@ -55,7 +68,7 @@
             android:layout_width="260dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="25dp"
             android:background="@drawable/home_btn"
             android:fontFamily="@font/poppins_semibold"
             android:text="Add Teacher"
@@ -63,15 +76,30 @@
             android:textAllCaps="false"
             android:textColor="#2C2A40"
             android:textSize="24sp" />
+
         <Button
             android:id="@+id/remove_teacher"
             android:layout_width="260dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="25dp"
             android:background="@drawable/home_btn"
             android:fontFamily="@font/poppins_semibold"
             android:text="Remove Teacher"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#2C2A40"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/log_out"
+            android:layout_width="260dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/home_btn"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="logout"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="#2C2A40"

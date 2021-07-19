@@ -2,7 +2,6 @@ package com.example.studeaze;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,28 +18,31 @@ import com.google.firebase.database.ValueEventListener;
 
 import io.paperdb.Paper;
 
-public class stud_dash extends AppCompatActivity {
-    private TextView student_name;
-    private Button view_attendance, timetable, logout , notice;
+public class teach_dash extends AppCompatActivity {
+    private TextView name;
+    private Button take_attendance, timetable, notice, logout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_stud_dash);
+        setContentView(R.layout.activity_teach_dash);
 
-        student_name = findViewById(R.id.S_text_name);
-        view_attendance = findViewById(R.id.view_attendance);
-        timetable = findViewById(R.id.S_view_class);
-        notice = findViewById(R.id.S_notice);
-        logout = findViewById(R.id.S_log_out);
+        name = findViewById(R.id.T_text_name);
+        take_attendance = (Button) findViewById(R.id.take_attendance);
+        timetable = (Button) findViewById(R.id.T_view_class);
+        notice = (Button) findViewById(R.id.notice_display);
+        logout = (Button) findViewById(R.id.T_log_out);
 
         Paper.init(this);
 
-        String UserUsnKey = Paper.book().read("usn");
-        String UserPasswordKey = Paper.book().read("password");
+        String TeacherSubKey = Paper.book().read("subcode");
+        String TeacherPasswordKey = Paper.book().read("t_password");
 
-        if(UserUsnKey != "" && UserPasswordKey != ""){
-            if(!TextUtils.isEmpty(UserUsnKey) && !TextUtils.isEmpty(UserPasswordKey)){
-                studentNameDisplay(UserUsnKey, UserPasswordKey);
+        if (TeacherSubKey != "" && TeacherPasswordKey != "")
+        {
+            if(!TextUtils.isEmpty(TeacherSubKey) && !TextUtils.isEmpty(TeacherPasswordKey))
+            {
+                teacherNameDisplay(TeacherSubKey, TeacherPasswordKey);
             }
         }
 
@@ -48,7 +50,7 @@ public class stud_dash extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Paper.book().destroy();
-                Intent intent = new Intent(stud_dash.this, home.class);
+                Intent intent = new Intent(teach_dash.this, home.class);
                 startActivity(intent);
             }
         });
@@ -56,28 +58,27 @@ public class stud_dash extends AppCompatActivity {
         notice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(stud_dash.this,ts_notice.class);
+                Intent intent = new Intent(teach_dash.this,ts_notice.class);
                 startActivity(intent);
 
             }
         });
-
     }
 
-    private void studentNameDisplay(String usn, String s_pass) {
+    private void teacherNameDisplay(final String s_code, final String t_pass) {
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
 
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.child("students").child(usn).exists()){
-                    students studentsData = dataSnapshot.child("students").child(usn).getValue(students.class);
+                if (dataSnapshot.child("teachers").child(s_code).exists()) {
+                    students teachersData = dataSnapshot.child("teachers").child(s_code).getValue(students.class);
 
-                    if(studentsData.getUsn().equals(usn)){
-                        if(studentsData.getPassword().equals(s_pass)){
-                            String s_name = studentsData.getName();
-                            student_name.setText(s_name);
+                    if (teachersData.getsubcode().equals(s_code)) {
+                        if (teachersData.getPassword().equals(t_pass)) {
+                            String t_name = teachersData.getName();
+                            name.setText(t_name);
                         }
                     }
                 }
@@ -92,7 +93,7 @@ public class stud_dash extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(stud_dash.this,home.class);
+        Intent intent = new Intent(teach_dash.this,home.class);
         startActivity(intent);
     }
 }

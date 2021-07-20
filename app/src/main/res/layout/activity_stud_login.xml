@@ -65,7 +65,7 @@
             android:hint="Enter USN"
             android:textAllCaps="true"
             android:includeFontPadding="true"
-            android:inputType="textCapCharacters"
+            android:inputType="textPersonName"
             android:lineSpacingExtra="15dp"
             android:paddingStart="15dp"
             android:textAlignment="inherit"

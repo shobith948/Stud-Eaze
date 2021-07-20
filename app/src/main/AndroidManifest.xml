@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudEaze">
-        <activity android:name=".ts_notice"></activity>
+        <activity android:name=".ts_notice" />
         <activity android:name=".loading_dialog" />
         <activity android:name=".add_notice" />
         <activity android:name=".teach_dash" />

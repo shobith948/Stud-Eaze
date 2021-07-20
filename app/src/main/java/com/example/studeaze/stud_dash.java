@@ -47,7 +47,7 @@ public class stud_dash extends AppCompatActivity {
         notice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(stud_dash.this, add_notice.class);
+                Intent intent = new Intent(stud_dash.this, ts_notice.class);
                 startActivity(intent);
             }
         });

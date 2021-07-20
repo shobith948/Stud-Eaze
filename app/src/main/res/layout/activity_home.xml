@@ -21,7 +21,6 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="35dp"
             android:fontFamily="@font/poppins_semibold"
-
             android:text="Hello,"
             android:textColor="@color/white"
             android:textSize="55sp"
@@ -42,7 +41,6 @@
             android:layout_width="375dp"
             android:layout_height="70dp"
             android:layout_marginLeft="15dp"
-
             android:fontFamily="@font/poppins_semibold"
             android:text="Stud Eaze"
             android:textSize="48sp"

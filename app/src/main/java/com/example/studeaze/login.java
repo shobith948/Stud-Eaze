@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
@@ -24,9 +25,11 @@ import io.paperdb.Paper;
 
 public class login extends AppCompatActivity {
 
-    TextView reg;
-    private EditText userusn , userpassword;
-    Button loginbtn;
+    private TextView reg;
+    private EditText S_usn , S_password;
+    private Button login_btn;
+    private static int LOADING_DIALOG = 5000;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +39,11 @@ public class login extends AppCompatActivity {
 
         setContentView(R.layout.activity_stud_login);
         TextView textView = (TextView) findViewById(R.id.textView7);
-        loginbtn = findViewById(R.id.s_login);
-        userusn = findViewById(R.id.usn);
-        userpassword = findViewById(R.id.pass);
+        login_btn = findViewById(R.id.s_login);
+        S_usn = findViewById(R.id.usn);
+        S_password = findViewById(R.id.pass);
         reg = findViewById(R.id.reg);
+        final loading_dialog loading_dialog = new loading_dialog(login.this);
 
 
         String s= "Student login";
@@ -50,32 +54,40 @@ public class login extends AppCompatActivity {
         tv.setText(ss1);
 
 
-        loginbtn.setOnClickListener(v -> {
-            if(userusn.getText().toString().equals("admin") && userpassword.getText().toString().equals("admin123")){
-                Paper.book().write("usn", userusn.getText().toString());
-                Paper.book().write("password", userpassword.getText().toString());
-                Toast.makeText(login.this, "You are now an Admin", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(login.this,admin.class);
-                startActivity(intent);
+        login_btn.setOnClickListener(v -> {
+            if(S_usn.getText().toString().equals("admin") && S_password.getText().toString().equals("admin123")){
+                Paper.book().write("usn", S_usn.getText().toString());
+                Paper.book().write("password", S_password.getText().toString());
+                loading_dialog.startLoadingDialog();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(login.this, "You are now an Admin", Toast.LENGTH_SHORT).show();
+                        loading_dialog.dismissDialog();
+                        Intent intent = new Intent(login.this,admin.class);
+                        startActivity(intent);
+                    }
+                },LOADING_DIALOG);
             }
             else {
-                LoginUser();
+                LoginStudent();
             }
         });
 
         reg.setOnClickListener(v -> {
-            regUser();
+            regStudent();
         });
     }
 
-    public  void regUser(){
+    public  void regStudent(){
         Intent intent = new Intent(this,reg_student.class);
         startActivity(intent);
     }
-    private void LoginUser()
+    private void LoginStudent()
     {
-        String usn = userusn.getText().toString();
-        String password= userpassword.getText().toString();
+        String usn = S_usn.getText().toString();
+        String password= S_password.getText().toString();
 
 
         if(TextUtils.isEmpty(usn))
@@ -94,7 +106,7 @@ public class login extends AppCompatActivity {
         }
         else
         {
-            AllowAccess(usn, password);
+            AllowAccess(usn,password);
         }
     }
 
@@ -118,9 +130,17 @@ public class login extends AppCompatActivity {
                         if (userData.getPassword().equals(password)) {
                             Paper.book().write("usn", usn);
                             Paper.book().write("password", password);
-                            Toast.makeText(login.this, "Logged In successfully", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(login.this, stud_dash.class);
-                            startActivity(intent);
+                            loading_dialog.startLoadingDialog();
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(login.this, "Logged In successfully", Toast.LENGTH_SHORT).show();
+                                    loading_dialog.dismissDialog();
+                                    Intent intent = new Intent(login.this, stud_dash.class);
+                                    startActivity(intent);
+                                }
+                            },LOADING_DIALOG);
 
                         } else {
                             Toast.makeText(login.this, "Incorrect password", Toast.LENGTH_SHORT).show();

@@ -19,7 +19,6 @@
             android:layout_height="50dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="20dp"
-
             android:fontFamily="@font/poppins_semibold"
             android:text="Hi, "
             android:textColor="#2c2a40"
@@ -31,7 +30,6 @@
             android:layout_width="370dp"
             android:layout_height="70dp"
             android:layout_marginLeft="15dp"
-
             android:fontFamily="@font/poppins_semibold"
             android:text="Student"
             android:textColor="#fff"
@@ -43,7 +41,6 @@
             android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-
             android:fontFamily="@font/poppins_semibold"
             android:text="Welcome to student dashboard"
             android:textColor="#2c2a40"

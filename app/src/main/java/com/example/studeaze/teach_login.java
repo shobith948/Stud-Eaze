@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
@@ -23,8 +24,11 @@ import com.google.firebase.database.ValueEventListener;
 import io.paperdb.Paper;
 
 public class teach_login extends AppCompatActivity {
+
     private EditText subcode, Tpassword;
     Button Tloginbtn;
+    private static int LOADING_DIALOG = 5000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +37,7 @@ public class teach_login extends AppCompatActivity {
         Tloginbtn = findViewById(R.id.tlogin_btn);
         subcode = findViewById(R.id.subcode);
         Tpassword = findViewById(R.id.tpass);
+        final loading_dialog loading_dialog = new loading_dialog(teach_login.this);
 
         String s= "Teacher login";
         SpannableString ss1=  new SpannableString(s);
@@ -45,10 +50,19 @@ public class teach_login extends AppCompatActivity {
             if(subcode.getText().toString().equals("admin") && Tpassword.getText().toString().equals("admin123")){
                 Paper.book().write("subcode", subcode.getText().toString());
                 Paper.book().write("t_password", Tpassword.getText().toString());
-                Toast.makeText(teach_login.this, "You are now an Admin", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(teach_login.this,admin.class);
-                startActivity(intent);
-            }else {
+                loading_dialog.startLoadingDialog();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(teach_login.this, "You are now an Admin", Toast.LENGTH_SHORT).show();
+                        loading_dialog.dismissDialog();
+                        Intent intent = new Intent(teach_login.this,admin.class);
+                        startActivity(intent);
+                    }
+                },LOADING_DIALOG);
+
+            } else {
                 LoginTeacher();
             }
         });
@@ -94,9 +108,17 @@ public class teach_login extends AppCompatActivity {
                         if (userData.getPassword().equals(Tpass)) {
                             Paper.book().write("subcode", scode);
                             Paper.book().write("t_password", Tpass);
-                            Toast.makeText(teach_login.this, "Logged In successfully", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(teach_login.this, teach_dash.class);
-                            startActivity(intent);
+                            loading_dialog.startLoadingDialog();
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(teach_login.this, "Logged In successfully", Toast.LENGTH_SHORT).show();
+                                    loading_dialog.dismissDialog();
+                                    Intent intent = new Intent(teach_login.this, teach_dash.class);
+                                    startActivity(intent);
+                                }
+                            },LOADING_DIALOG);
 
                         } else {
                             Toast.makeText(teach_login.this, "Incorrect password", Toast.LENGTH_SHORT).show();

@@ -74,7 +74,7 @@ Button rm_std, add_teach, rm_teach, add_notice, logout;
         startActivity(intent);
     }
     public  void add_Notice(){
-        Intent intent = new Intent(this,add_teacher.class);
+        Intent intent = new Intent(this,add_notice.class);
         startActivity(intent);
     }
 

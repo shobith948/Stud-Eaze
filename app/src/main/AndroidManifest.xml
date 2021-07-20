@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.studeaze">
 
     <application
@@ -9,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudEaze">
-        <activity android:name=".add_notice"></activity>
+        <activity android:name=".ts_notice"></activity>
+        <activity android:name=".loading_dialog" />
+        <activity android:name=".add_notice" />
         <activity android:name=".teach_dash" />
         <activity android:name=".add_teacher" />
         <activity android:name=".stud_dash" />
@@ -18,7 +21,8 @@
         <activity android:name=".login" />
         <activity android:name=".teach_login" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".home">
+        <activity android:name=".home" />
+        <activity android:name=".splash_screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

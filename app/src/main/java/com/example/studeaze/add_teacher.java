@@ -188,7 +188,7 @@ public class add_teacher extends AppCompatActivity {
                     }
                     else{
                         Toast.makeText(add_teacher.this, "This "+phone+" already exists", Toast.LENGTH_SHORT).show();
-                        Toast.makeText(add_teacher.this, "Please Login", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(add_teacher.this, "Failed to add teacher", Toast.LENGTH_SHORT).show();
                         Intent intent =new Intent(add_teacher.this , admin.class);
                         startActivity(intent);
                     }
@@ -197,7 +197,7 @@ public class add_teacher extends AppCompatActivity {
                 if((dataSnapshot.child("teachers").child(subcode).exists()))
                 {
                     Toast.makeText(add_teacher.this, "This "+subcode+" already exists", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(add_teacher.this, "Please Login", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(add_teacher.this, "Failed to add teacher", Toast.LENGTH_SHORT).show();
                     Intent intent =new Intent(add_teacher.this , admin.class);
                     startActivity(intent);
                 }

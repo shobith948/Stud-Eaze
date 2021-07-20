@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".stud_dash">
+    tools:context=".teach_dash">
 
     <LinearLayout
         android:id="@+id/stud_head"
@@ -19,7 +19,6 @@
             android:layout_height="50dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="20dp"
-
             android:fontFamily="@font/poppins_semibold"
             android:text="Hi, "
             android:textColor="#2c2a40"
@@ -31,7 +30,6 @@
             android:layout_width="370dp"
             android:layout_height="70dp"
             android:layout_marginLeft="15dp"
-
             android:fontFamily="@font/poppins_semibold"
             android:text="Teacher"
             android:textColor="#fff"
@@ -43,7 +41,6 @@
             android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-
             android:fontFamily="@font/poppins_semibold"
             android:text="Welcome to teacher dashboard"
             android:textColor="#2c2a40"
@@ -85,7 +82,7 @@
             android:textColor="#2C2A40"
             android:textSize="24sp" />
         <Button
-            android:id="@+id/T_notice"
+            android:id="@+id/notice_display"
             android:layout_width="260dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"

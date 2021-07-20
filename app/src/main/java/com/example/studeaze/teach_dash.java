@@ -30,7 +30,7 @@ public class teach_dash extends AppCompatActivity {
         name = findViewById(R.id.T_text_name);
         take_attendance = (Button) findViewById(R.id.take_attendance);
         timetable = (Button) findViewById(R.id.T_view_class);
-        notice = (Button) findViewById(R.id.T_notice);
+        notice = (Button) findViewById(R.id.notice_display);
         logout = (Button) findViewById(R.id.T_log_out);
 
         Paper.init(this);
@@ -49,7 +49,7 @@ public class teach_dash extends AppCompatActivity {
         notice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(teach_dash.this, add_notice.class);
+                Intent intent = new Intent(teach_dash.this, ts_notice.class);
                 startActivity(intent);
             }
         });

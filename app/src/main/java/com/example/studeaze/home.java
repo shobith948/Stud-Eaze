@@ -40,7 +40,12 @@ public class home extends AppCompatActivity {
         {
             if(!TextUtils.isEmpty(UserUsnKey) && !TextUtils.isEmpty(UserPasswordKey))
             {
-                AllowAccess(UserUsnKey, UserPasswordKey);
+                if(UserUsnKey.equals("admin") && UserPasswordKey.equals("admin123")) {
+                    AdminAllowAccess();
+                }
+                else {
+                    AllowAccess(UserUsnKey, UserPasswordKey);
+                }
 
             }
         }

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.studeaze">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,14 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudEaze">
-        <activity android:name=".loading_dialog"></activity>
+        <activity android:name=".image_upload" />
         <activity android:name=".add_notice" />
         <activity android:name=".teach_dash" />
         <activity android:name=".add_teacher" />
         <activity android:name=".stud_dash" />
         <activity android:name=".reg_student" />
+        <activity android:name=".TimeTableDisplay"/>
         <activity android:name=".admin" />
         <activity android:name=".login" />
+        <activity android:name=".ts_notice" />
         <activity android:name=".teach_login" />
         <activity android:name=".MainActivity" />
         <activity android:name=".home" />

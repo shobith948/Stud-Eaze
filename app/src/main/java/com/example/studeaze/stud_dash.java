@@ -1,15 +1,14 @@
 package com.example.studeaze;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,9 +28,9 @@ public class stud_dash extends AppCompatActivity {
 
         student_name = findViewById(R.id.S_text_name);
         view_attendance = findViewById(R.id.view_attendance);
-        timetable = findViewById(R.id.S_view_class);
         notice = findViewById(R.id.S_notice);
         logout = findViewById(R.id.S_log_out);
+        view_attendance = findViewById(R.id.view_shedule);
 
         Paper.init(this);
 
@@ -43,6 +42,13 @@ public class stud_dash extends AppCompatActivity {
                 studentNameDisplay(UserUsnKey, UserPasswordKey);
             }
         }
+
+        view_attendance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(stud_dash.this , TimeTableDisplay.class));
+            }
+        });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

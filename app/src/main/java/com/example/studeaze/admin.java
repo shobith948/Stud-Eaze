@@ -1,7 +1,5 @@
 package com.example.studeaze;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -11,16 +9,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import io.paperdb.Paper;
 
 public class admin extends AppCompatActivity {
-    Button rm_std, add_teach, rm_teach, add_notice, logout;
+    Button rm_std, add_teach, rm_teach, add_notice,timetable, logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
         TextView textView = (TextView) findViewById(R.id.admin_htext);
         rm_std = findViewById(R.id.remove_std);
+        timetable = (Button) findViewById(R.id.add_Table);
         add_teach = findViewById(R.id.add_teacher);
         rm_teach = findViewById(R.id.remove_teacher);
         add_notice = findViewById(R.id.notice);
@@ -58,6 +59,15 @@ public class admin extends AppCompatActivity {
                 Paper.book().destroy();
                 Intent intent = new Intent(admin.this, home.class);
                 startActivity(intent);
+            }
+        });
+
+        timetable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(admin.this,image_upload.class);
+                startActivity(intent);
+
             }
         });
     }

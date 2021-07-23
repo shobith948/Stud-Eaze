@@ -1,8 +1,5 @@
 package com.example.studeaze;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -13,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,6 +25,7 @@ import io.paperdb.Paper;
 public class teach_login extends AppCompatActivity {
     private EditText subcode, Tpassword;
     Button Tloginbtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +34,8 @@ public class teach_login extends AppCompatActivity {
         Tloginbtn = findViewById(R.id.tlogin_btn);
         subcode = findViewById(R.id.subcode);
         Tpassword = findViewById(R.id.tpass);
+
+        Paper.init(this);
 
         String s= "Teacher login";
         SpannableString ss1=  new SpannableString(s);
@@ -72,6 +75,7 @@ public class teach_login extends AppCompatActivity {
             AllowAccess(scode,Tpass);
         }
     }
+
 
     private void AllowAccess(final String scode, final String Tpass)
     {

@@ -50,6 +50,17 @@
             android:padding="-5dp"
             android:textSize="20sp"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/T_log_out"
+            android:fontFamily="@font/poppins_light"
+            android:layout_width="117dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/home_btn"
+            android:layout_marginLeft="15dp"
+            android:paddingStart="10dp"
+            android:drawableLeft="@drawable/ic_baseline_exit_to_app_24"
+            android:text="Logout" />
     </LinearLayout>
 
     <LinearLayout
@@ -71,19 +82,8 @@
             android:textAllCaps="false"
             android:textColor="#2C2A40"
             android:textSize="24sp" />
-        <Button
-            android:id="@+id/T_view_class"
-            android:layout_width="260dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/home_btn"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Time Table "
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#2C2A40"
-            android:textSize="24sp" />
+
+
         <Button
             android:id="@+id/notice_display"
             android:layout_width="260dp"
@@ -97,19 +97,21 @@
             android:textAllCaps="false"
             android:textColor="#2C2A40"
             android:textSize="24sp" />
+
         <Button
-            android:id="@+id/T_log_out"
+            android:id="@+id/view_table"
             android:layout_width="260dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="50dp"
             android:background="@drawable/home_btn"
             android:fontFamily="@font/poppins_semibold"
-            android:text="Log Out "
+            android:text="view shedule"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="#2C2A40"
             android:textSize="24sp" />
+
 
     </LinearLayout>
 

@@ -16,15 +16,26 @@
         <TextView
             android:id="@+id/admin_htext"
             android:layout_width="wrap_content"
-            android:layout_height="207dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="20dp"
-
             android:fontFamily="@font/poppins_semibold"
             android:text="Admin Dashboard"
             android:textColor="#2c2a40"
             android:textSize="35sp"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/log_out"
+            android:fontFamily="@font/poppins_light"
+            android:layout_width="117dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/home_btn"
+            android:layout_marginLeft="15dp"
+            android:paddingStart="10dp"
+            android:drawableLeft="@drawable/ic_baseline_exit_to_app_24"
+            android:text="Logout" />
+
 
     </LinearLayout>
 
@@ -92,17 +103,18 @@
             android:textSize="24sp" />
 
         <Button
-            android:id="@+id/log_out"
+            android:id="@+id/add_Table"
             android:layout_width="260dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="25dp"
             android:background="@drawable/home_btn"
             android:fontFamily="@font/poppins_semibold"
-            android:text="logout"
+            android:text="add shedule"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="#2C2A40"
             android:textSize="24sp" />
+
     </LinearLayout>
 </RelativeLayout>

@@ -50,6 +50,18 @@
             android:padding="-5dp"
             android:textSize="18sp"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/S_log_out"
+            android:fontFamily="@font/poppins_light"
+            android:layout_width="117dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/home_btn"
+            android:layout_marginLeft="15dp"
+            android:paddingStart="10dp"
+            android:drawableLeft="@drawable/ic_baseline_exit_to_app_24"
+            android:text="Logout" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -87,29 +99,17 @@
             android:textColor="#2C2A40"
             android:textSize="24sp" />
 
-        <Button
-            android:id="@+id/S_view_class"
-            android:layout_width="260dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="45dp"
-            android:background="@drawable/home_btn"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Time table "
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#2C2A40"
-            android:textSize="24sp" />
+
 
         <Button
-            android:id="@+id/S_log_out"
+            android:id="@+id/view_shedule"
             android:layout_width="260dp"
             android:layout_height="60dp"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="45dp"
             android:background="@drawable/home_btn"
             android:fontFamily="@font/poppins_semibold"
-            android:text="logout "
+            android:text="View shedule "
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="#2C2A40"

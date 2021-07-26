@@ -29,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class reg_student extends AppCompatActivity {
 
@@ -184,6 +185,7 @@ public class reg_student extends AppCompatActivity {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if (task.isSuccessful()) {
+
                                                     Toast.makeText(reg_student.this, "Congratulations your account is created successfully", Toast.LENGTH_SHORT).show();
 
                                                     Intent intent = new Intent(reg_student.this, login.class);

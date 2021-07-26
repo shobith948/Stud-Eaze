@@ -2,6 +2,7 @@ package com.example.studeaze;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,9 +19,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import io.paperdb.Paper;
 
-public class teach_dash extends AppCompatActivity {
+public class teach_dash extends AppCompatActivity implements View.OnClickListener{
     private TextView name;
-    private Button take_attendance, timetable, notice, logout;
+    private CardView take_attendance, marks, notice, timetable;
+    private Button logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +30,16 @@ public class teach_dash extends AppCompatActivity {
         setContentView(R.layout.activity_teach_dash);
 
         name = findViewById(R.id.T_text_name);
-        take_attendance = (Button) findViewById(R.id.take_attendance);
-        timetable = (Button) findViewById(R.id.T_view_class);
-        notice = (Button) findViewById(R.id.notice_display);
+        take_attendance = (CardView) findViewById(R.id.take_attendance);
+        marks = (CardView) findViewById(R.id.T_marks);
+        notice = (CardView) findViewById(R.id.notice_display);
+        timetable = (CardView) findViewById(R.id.T_view_class);
         logout = (Button) findViewById(R.id.T_log_out);
+
+        take_attendance.setOnClickListener(this);
+        marks.setOnClickListener(this);
+        notice.setOnClickListener(this);
+        timetable.setOnClickListener(this);
 
         Paper.init(this);
 
@@ -46,13 +54,13 @@ public class teach_dash extends AppCompatActivity {
             }
         }
 
-        notice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(teach_dash.this, ts_notice.class);
-                startActivity(intent);
-            }
-        });
+//        notice.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(teach_dash.this, ts_notice.class);
+//                startActivity(intent);
+//            }
+//        });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +96,33 @@ public class teach_dash extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent i;
+
+        switch (view.getId()) {
+            case R.id.take_attendance:
+                i = new Intent(this, ts_notice.class);
+                startActivity(i);
+                break;
+
+            case R.id.T_marks:
+                i = new Intent(this, home.class);
+                startActivity(i);
+                break;
+
+            case R.id.T_notice:
+                i = new Intent(this, ts_notice.class);
+                startActivity(i);
+                break;
+
+            case R.id.T_view_class:
+                i = new Intent(this, home.class);
+                startActivity(i);
+                break;
+        }
     }
 
     @Override

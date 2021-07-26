@@ -21,6 +21,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 import io.paperdb.Paper;
 
 public class login extends AppCompatActivity {
@@ -67,6 +69,7 @@ public class login extends AppCompatActivity {
                         loading_dialog.dismissDialog();
                         Intent intent = new Intent(login.this,admin.class);
                         startActivity(intent);
+                        finish();
                     }
                 },LOADING_DIALOG);
             }
@@ -150,6 +153,7 @@ public class login extends AppCompatActivity {
                     {
                         Toast.makeText(login.this, "Error in get method", Toast.LENGTH_SHORT).show();
                     }
+
                 }
                 else
                 {

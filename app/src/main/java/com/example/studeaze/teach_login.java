@@ -33,7 +33,6 @@ public class teach_login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teach_login);
-        TextView textView = (TextView) findViewById(R.id.tlogin);
         Tloginbtn = findViewById(R.id.tlogin_btn);
         subcode = findViewById(R.id.subcode);
         Tpassword = findViewById(R.id.tpass);

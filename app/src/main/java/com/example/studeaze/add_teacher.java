@@ -50,7 +50,6 @@ public class add_teacher extends AppCompatActivity {
         Addt = findViewById(R.id.reg_t_btn);
         Spinner myspinner = (Spinner) findViewById(R.id.spinner2);
 
-        TextView textView = (TextView) findViewById(R.id.addt_head);
         String s= "Teacher ADD";
         SpannableString ss1=  new SpannableString(s);
         ss1.setSpan(new RelativeSizeSpan(1.5f), 0,8, 0); // set size
@@ -135,7 +134,7 @@ public class add_teacher extends AppCompatActivity {
             Toast.makeText(add_teacher.this, "Confirm Password does not match", Toast.LENGTH_SHORT).show();
         }
         else
-        if(TextUtils.getTrimmedLength(phone) < 6)
+        if(TextUtils.getTrimmedLength(password) < 6)
         {
             Toast.makeText(add_teacher.this, "Password must be greater than 6 characters", Toast.LENGTH_SHORT).show();
         }

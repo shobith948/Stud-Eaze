@@ -67,18 +67,18 @@ public class add_notice extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
-                HashMap<String, Object> studentsdataMap = new HashMap<>();
-                studentsdataMap.put("date", saveCurrentDate);
-                studentsdataMap.put("time", saveCurrentTime);
-                studentsdataMap.put("note_head", notice_head.getText().toString());
-                studentsdataMap.put("note_desc", notice_desc.getText().toString());
+                HashMap<String, Object> noticedataMap = new HashMap<>();
+                noticedataMap.put("date", saveCurrentDate);
+                noticedataMap.put("time", saveCurrentTime);
+                noticedataMap.put("note_head", notice_head.getText().toString());
+                noticedataMap.put("note_desc", notice_desc.getText().toString());
 
 
-                RootRef.child("notice").child(noticeId).updateChildren(studentsdataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                RootRef.child("notice").child(noticeId).updateChildren(noticedataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(add_notice.this,"updated sucessfully",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(add_notice.this,"Updated Successfully",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(add_notice.this,admin.class);
                             startActivity(intent);
                         }

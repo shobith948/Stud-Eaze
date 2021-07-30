@@ -1,14 +1,14 @@
 package com.example.studeaze;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,16 +19,16 @@ import com.google.firebase.database.ValueEventListener;
 import io.paperdb.Paper;
 
 public class home extends AppCompatActivity {
-    private Button student;
-    private Button teacher;
+    private  CardView student;
+    private  CardView teacher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        student =(Button) findViewById(R.id.std_log);
-        teacher =(Button) findViewById(R.id.teacher);
+        student =(CardView) findViewById(R.id.std_log);
+        teacher =(CardView) findViewById(R.id.teacher);
         Paper.init(this);
 
         String UserUsnKey = Paper.book().read("usn");
@@ -40,7 +40,12 @@ public class home extends AppCompatActivity {
         {
             if(!TextUtils.isEmpty(UserUsnKey) && !TextUtils.isEmpty(UserPasswordKey))
             {
-                AllowAccess(UserUsnKey, UserPasswordKey);
+                if(UserUsnKey.equals("admin") && UserPasswordKey.equals("admin123")) {
+                    AdminAllowAccess();
+                }
+                else {
+                    AllowAccess(UserUsnKey, UserPasswordKey);
+                }
 
             }
         }

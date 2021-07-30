@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ts_notice">
+
+    <LinearLayout
+        android:id="@+id/lay1"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:orientation="vertical"
+        android:background="@drawable/home_design"/>
+
+    <TextView
+        android:id="@+id/T_text_name"
+        android:layout_width="393dp"
+        android:layout_height="168dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Marks and \n Attendence"
+        android:textColor="#fff"
+        android:textSize="45sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/lay1">
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:id="@+id/usn_head"
+        android:layout_width="105dp"
+        android:layout_height="55dp"
+        android:text="subject\ncode"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_semibold"
+        android:textAlignment="center"
+        android:background="@drawable/marks_border"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/lay1"/>
+    <TextView
+        android:id="@+id/test1"
+        android:layout_width="50dp"
+        android:layout_height="55dp"
+        android:text="C1"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_semibold"
+        android:textAlignment="center"
+        android:background="@drawable/marks_border"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/lay1"
+        android:layout_toEndOf="@+id/usn_head"/>
+
+    <TextView
+        android:id="@+id/test2"
+        android:layout_width="50dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/lay1"
+        android:text="c2"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_semibold"
+        android:textAlignment="center"
+        android:background="@drawable/marks_border"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@+id/test1" />
+
+    <TextView
+        android:id="@+id/test3"
+        android:layout_width="50dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/lay1"
+        android:text="c3"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_semibold"
+        android:textAlignment="center"
+        android:background="@drawable/marks_border"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@+id/test2" />
+
+    <TextView
+        android:id="@+id/avg"
+        android:layout_width="85dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/lay1"
+        android:text="AVERAGE"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_semibold"
+        android:textAlignment="center"
+        android:background="@drawable/marks_border"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@+id/test3" />
+
+    <TextView
+        android:id="@+id/attendence"
+        android:layout_width="85dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/lay1"
+        android:text="att"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_semibold"
+        android:textAlignment="center"
+        android:background="@drawable/marks_border"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@+id/avg" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/marks_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/usn_head"
+        />
+
+
+</RelativeLayout>

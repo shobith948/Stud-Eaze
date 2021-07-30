@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,9 +19,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import io.paperdb.Paper;
 
-public class teach_dash extends AppCompatActivity {
-    private TextView name;
-    private Button take_attendance, notice, logout;
+public class teach_dash extends AppCompatActivity implements View.OnClickListener{
+    private TextView name,disSubcode;
+    private CardView take_attendance, marks, notice;
+    private Button logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +30,16 @@ public class teach_dash extends AppCompatActivity {
         setContentView(R.layout.activity_teach_dash);
 
         name = findViewById(R.id.T_text_name);
-        take_attendance = (Button) findViewById(R.id.take_attendance);
-        notice = (Button) findViewById(R.id.notice_display);
+        disSubcode = findViewById(R.id.disSube);
+        marks = (CardView) findViewById(R.id.T_marks);
+        notice = (CardView) findViewById(R.id.T_notice);
         logout = (Button) findViewById(R.id.T_log_out);
+        take_attendance = (CardView) findViewById(R.id.take_attendance);
+
+        take_attendance.setOnClickListener(this);
+        marks.setOnClickListener(this);
+        notice.setOnClickListener(this);
+
 
         Paper.init(this);
 
@@ -53,16 +62,6 @@ public class teach_dash extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        notice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(teach_dash.this,ts_notice.class);
-                startActivity(intent);
-
-            }
-        });
-
     }
 
     private void teacherNameDisplay(final String s_code, final String t_pass) {
@@ -77,8 +76,10 @@ public class teach_dash extends AppCompatActivity {
 
                     if (teachersData.getsubcode().equals(s_code)) {
                         if (teachersData.getPassword().equals(t_pass)) {
+                            String t_subcode = teachersData.getsubcode();
                             String t_name = teachersData.getName();
                             name.setText(t_name);
+                            disSubcode.setText(t_subcode);
                         }
                     }
                 }
@@ -89,6 +90,29 @@ public class teach_dash extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent i;
+
+        switch (view.getId()) {
+            case R.id.T_marks:
+                i = new Intent(this, add_marks.class);
+                startActivity(i);
+                break;
+
+            case R.id.T_notice:
+                i = new Intent(this, ts_notice.class);
+                startActivity(i);
+                break;
+
+            case R.id.take_attendance:
+                i = new Intent(this, add_marks.class);
+                startActivity(i);
+                break;
+
+        }
     }
 
     @Override

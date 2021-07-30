@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".add_marks">
+
+    <LinearLayout
+        android:id="@+id/lay1"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:orientation="vertical"
+        android:background="@drawable/home_design">
+
+
+
+        <TextView
+            android:id="@+id/subcode_marks"
+            android:layout_width="370dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="35dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="18CCS21"
+            android:textColor="#fff"
+            android:textSize="45sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+
+            android:fontFamily="@font/poppins_semibold"
+            android:padding="-5dp"
+            android:text="Marks and  Attendence \nEvaluation"
+            android:textColor="#2c2a40"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/lay1"/>
+
+    <EditText
+        android:layout_marginLeft="20dp"
+        android:id="@+id/usn_head"
+        android:layout_width="105dp"
+        android:layout_height="55dp"
+        android:hint="usn"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_semibold"
+        android:textAlignment="center"
+        android:background="@drawable/marks_border"
+        android:layout_marginTop="45dp"
+        android:layout_below="@id/lay1"/>
+
+    <EditText
+        android:id="@+id/test1"
+        android:layout_width="50dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/lay1"
+        android:layout_marginTop="45dp"
+        android:layout_toEndOf="@+id/usn_head"
+        android:background="@drawable/marks_border"
+        android:fontFamily="@font/poppins_semibold"
+        android:hint="C1"
+        android:textAlignment="center"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/test2"
+        android:layout_width="50dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/lay1"
+        android:layout_marginTop="45dp"
+        android:layout_toEndOf="@+id/test1"
+        android:background="@drawable/marks_border"
+        android:fontFamily="@font/poppins_semibold"
+        android:hint="c2"
+        android:textAlignment="center"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/test3"
+        android:layout_width="50dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/lay1"
+        android:layout_marginTop="45dp"
+        android:layout_toEndOf="@+id/test2"
+        android:background="@drawable/marks_border"
+        android:fontFamily="@font/poppins_semibold"
+        android:hint="c3"
+        android:textAlignment="center"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/avg"
+        android:layout_width="85dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/lay1"
+        android:layout_marginTop="45dp"
+        android:layout_toEndOf="@+id/test3"
+        android:background="@drawable/marks_border"
+        android:fontFamily="@font/poppins_semibold"
+        android:hint="AVERAGE"
+        android:textAlignment="center"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/attendence"
+        android:layout_width="115dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/usn_head"
+        android:hint="Attendence"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_semibold"
+        android:textAlignment="center"
+        android:background="@drawable/marks_border"
+        android:layout_marginTop="15dp" />
+
+    <Button
+        android:id="@+id/update"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="590dp"
+        android:background="@drawable/login_btn"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Update"
+        android:textColor="@color/white" />
+</RelativeLayout>

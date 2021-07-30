@@ -2,6 +2,7 @@ package com.example.studeaze;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
@@ -27,6 +28,7 @@ public class login extends AppCompatActivity {
     TextView reg;
     private EditText Susn, Spassword;
     Button loginbtn;
+    private static int LOADING_DIALOG = 5000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class login extends AppCompatActivity {
         loginbtn = findViewById(R.id.s_login);
         Susn = findViewById(R.id.usn);
         Spassword = findViewById(R.id.pass);
+        final loading_dialog loading_dialog = new loading_dialog(login.this);
 
 
         String s= "Student login";
@@ -53,17 +56,24 @@ public class login extends AppCompatActivity {
 
         loginbtn.setOnClickListener(v -> {
             if(Susn.getText().toString().equals("admin") && Spassword.getText().toString().equals("admin123")){
-                Toast.makeText(login.this, "your now an admin", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(login.this,admin.class);
-                startActivity(intent);
-            }else {
-                LoginStudent();
-
+                Paper.book().write("usn", Susn.getText().toString());
+                Paper.book().write("password", Spassword.getText().toString());
+                loading_dialog.startLoadingDialog();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(login.this, "You are now an Admin", Toast.LENGTH_SHORT).show();
+                        loading_dialog.dismissDialog();
+                        Intent intent = new Intent(login.this,admin.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                },LOADING_DIALOG);
             }
-        });
-
-        reg.setOnClickListener(v -> {
-            regStudent();
+            else {
+                LoginStudent();
+            }
         });
     }
 
@@ -117,9 +127,17 @@ public class login extends AppCompatActivity {
                         if (userData.getPassword().equals(password)) {
                             Paper.book().write("usn", usn);
                             Paper.book().write("password", password);
-                            Toast.makeText(login.this, "Logged In successfully", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(login.this, stud_dash.class);
-                            startActivity(intent);
+                            loading_dialog.startLoadingDialog();
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(login.this, "Logged In successfully", Toast.LENGTH_SHORT).show();
+                                    loading_dialog.dismissDialog();
+                                    Intent intent = new Intent(login.this, stud_dash.class);
+                                    startActivity(intent);
+                                }
+                            },LOADING_DIALOG);
 
                         } else {
                             Toast.makeText(login.this, "Incorrect password", Toast.LENGTH_SHORT).show();

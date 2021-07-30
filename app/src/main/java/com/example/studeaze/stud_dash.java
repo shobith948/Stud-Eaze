@@ -20,17 +20,17 @@ import io.paperdb.Paper;
 
 public class stud_dash extends AppCompatActivity {
     private TextView student_name;
-    private Button view_attendance, timetable, logout , notice;
+    private Button view_attNmarks, timetable, logout , notice;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stud_dash);
 
         student_name = findViewById(R.id.S_text_name);
-        view_attendance = findViewById(R.id.view_attendance);
+        view_attNmarks = findViewById(R.id.view_MnA);
         notice = findViewById(R.id.S_notice);
         logout = findViewById(R.id.S_log_out);
-        view_attendance = findViewById(R.id.view_shedule);
+
 
         Paper.init(this);
 
@@ -43,10 +43,10 @@ public class stud_dash extends AppCompatActivity {
             }
         }
 
-        view_attendance.setOnClickListener(new View.OnClickListener() {
+        view_attNmarks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(stud_dash.this , TimeTableDisplay.class));
+                startActivity(new Intent(stud_dash.this , marks_recycler.class));
             }
         });
 

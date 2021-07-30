@@ -12,13 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudEaze">
+        <activity android:name=".loading_dialog"></activity>
+        <activity android:name=".add_marks" />
+        <activity android:name=".marks_recycler" />
         <activity android:name=".image_upload" />
         <activity android:name=".add_notice" />
         <activity android:name=".teach_dash" />
         <activity android:name=".add_teacher" />
         <activity android:name=".stud_dash" />
         <activity android:name=".reg_student" />
-        <activity android:name=".TimeTableDisplay"/>
+        <activity android:name=".TimeTableDisplay" />
         <activity android:name=".admin" />
         <activity android:name=".login" />
         <activity android:name=".ts_notice" />

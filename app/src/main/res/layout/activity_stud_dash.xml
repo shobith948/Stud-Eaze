@@ -86,18 +86,19 @@
                 android:textSize="24sp" />
 
         <Button
-            android:id="@+id/view_attendance"
-            android:layout_width="260dp"
+            android:id="@+id/view_MnA"
+            android:layout_width="270dp"
             android:layout_height="60dp"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="45dp"
             android:background="@drawable/home_btn"
             android:fontFamily="@font/poppins_semibold"
-            android:text="view attendence"
+            android:text="marks/attendence"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="#2C2A40"
             android:textSize="24sp" />
+
 
 
 
@@ -119,3 +120,4 @@
     </LinearLayout>
 
 </RelativeLayout>
+

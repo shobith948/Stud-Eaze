@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/addt_text"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="100dp"
         android:orientation="vertical">
 
         <TextView
@@ -20,7 +20,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="25dp"
             android:fontFamily="@font/poppins_semibold"
-            android:text="teacher"
+            android:text="Teacher"
             android:textColor="#2c2a40"
             android:textSize="36sp"
             android:textStyle="bold" />
@@ -65,7 +65,7 @@
             android:drawablePadding="10dp"
             android:ems="10"
             android:fontFamily="@font/poppins_light"
-            android:hint="subject code"
+            android:hint="Subject code"
             android:includeFontPadding="true"
             android:inputType="textCapCharacters"
             android:lineSpacingExtra="15dp"
@@ -86,7 +86,7 @@
             android:drawablePadding="10dp"
             android:ems="10"
             android:fontFamily="@font/poppins_light"
-            android:hint="phone"
+            android:hint="Phone"
             android:includeFontPadding="true"
             android:inputType="phone"
             android:lineSpacingExtra="15dp"

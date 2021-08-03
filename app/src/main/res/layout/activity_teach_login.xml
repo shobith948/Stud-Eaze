@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="wrap_content"
-        android:layout_height="400dp"
+        android:layout_height="350dp"
         android:background="@drawable/teacher"
         android:layout_centerHorizontal="true"
         android:orientation="vertical">

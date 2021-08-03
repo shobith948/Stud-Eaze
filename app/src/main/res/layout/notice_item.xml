@@ -2,70 +2,77 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/light">
-
-
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="match_parent"
-        android:layout_height="34dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:textSize="25dp" />
-
-    <TextView
-
-        android:id="@+id/time"
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:layout_below="@id/date"
-        android:fontFamily="@font/poppins_light"
-        android:textSize="25dp" />
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/lay"
         android:outlineSpotShadowColor="@color/ddark"
-        android:layout_below="@id/time"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="15dp"
         android:orientation="vertical"
         android:layout_width="350dp"
         android:layout_marginLeft="30dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/notice_bg">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/head"
-            android:layout_width="339dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:textColor="@color/dark"
             android:textAllCaps="false"
-            android:textSize="25dp"
+            android:textSize="30dp"
             android:textStyle="bold" />
 
-        <View
-            android:id="@+id/view"
+        <TextView
+            android:id="@+id/desc"
             android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:background="@color/slight"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif"
+            android:textAlignment="gravity"
+            android:textSize="20dp" />
 
         <TextView
-            android:layout_marginTop="5dp"
-            android:id="@+id/desc"
-            android:layout_width="330dp"
+            android:id="@+id/date"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:fontFamily="@font/poppins_light"
-            android:textSize="13dp" />
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/aclonica"
+            android:textAlignment="viewEnd"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/date"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/aclonica"
+            android:textAlignment="textEnd"
+            android:textSize="15dp" />
 
     </LinearLayout>
-    <View
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/lay"
-        android:id="@+id/view2"
-        android:background="@color/ddark"
-        android:layout_marginTop="20dp"
-        android:layout_width="350dp"
-        android:layout_height="2dp" />
+
+    <LinearLayout
+        android:id="@+id/lay_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lay"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+        <View
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/lay"
+            android:id="@+id/view2"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/slight" />
+    </LinearLayout>
 
 </RelativeLayout>

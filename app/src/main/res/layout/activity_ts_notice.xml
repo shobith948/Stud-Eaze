@@ -6,10 +6,58 @@
     android:layout_height="match_parent"
     tools:context=".ts_notice">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/notice_display"
+    <LinearLayout
+        android:id="@+id/notice_top"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="120dp"
+        android:background="@drawable/notice_top_design"
+        android:orientation="horizontal">
 
+        <TextView
+            android:id="@+id/notice_top_textview"
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="40dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Notice"
+            android:textSize="48sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/notice_top_imageView"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="5dp"
+            app:srcCompat="@drawable/notice_page" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lay_notice_display"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@+id/notice_top"
+        android:background="@drawable/notice_bg">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:scrollbarSize="4dp"
+            android:scrollbarThumbVertical="@drawable/scrollbar">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/notice_display"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/lay_notice_display" />
+
+        </ScrollView>
+
+</LinearLayout>
 
 </RelativeLayout>

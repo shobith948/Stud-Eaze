@@ -89,7 +89,7 @@ public class reg_student extends AppCompatActivity {
 
         String s = "Student Register";
         SpannableString ss1 = new SpannableString(s);
-        ss1.setSpan(new RelativeSizeSpan(2f), 0, 8, 0); // set size
+        ss1.setSpan(new RelativeSizeSpan(1.4f), 0, 8, 0); // set size
         ss1.setSpan(new ForegroundColorSpan(R.drawable.card_view), 0, 7, 0);// set color
         TextView tv = (TextView) findViewById(R.id.reg_head);
         tv.setText(ss1);

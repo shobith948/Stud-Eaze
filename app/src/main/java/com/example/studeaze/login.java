@@ -40,7 +40,6 @@ public class login extends AppCompatActivity {
         Paper.init(this);
 
         setContentView(R.layout.activity_stud_login);
-        TextView textView = (TextView) findViewById(R.id.textView7);
         login_btn = findViewById(R.id.s_login);
         S_usn = findViewById(R.id.usn);
         S_password = findViewById(R.id.pass);

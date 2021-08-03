@@ -32,7 +32,7 @@ public class teach_dash extends AppCompatActivity implements View.OnClickListene
         name = findViewById(R.id.T_text_name);
         take_attendance = (CardView) findViewById(R.id.take_attendance);
         marks = (CardView) findViewById(R.id.T_marks);
-        notice = (CardView) findViewById(R.id.notice_display);
+        notice = (CardView) findViewById(R.id.T_notice);
         timetable = (CardView) findViewById(R.id.T_view_class);
         logout = (Button) findViewById(R.id.T_log_out);
 
@@ -53,14 +53,6 @@ public class teach_dash extends AppCompatActivity implements View.OnClickListene
                     teacherNameDisplay(TeacherSubKey, TeacherPasswordKey);
             }
         }
-
-//        notice.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(teach_dash.this, ts_notice.class);
-//                startActivity(intent);
-//            }
-//        });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

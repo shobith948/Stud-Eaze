@@ -38,25 +38,60 @@
             android:orientation="vertical">
 
 
-            <EditText
-                android:id="@+id/notice_head"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                />
+                android:layout_height="80dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/home_btn"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:scrollbarSize="4dp"
+                android:scrollbarThumbVertical="@drawable/scrollbar">
+
+                <EditText
+                    android:id="@+id/notice_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:hint="Enter subject"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorHint="@color/black"
+                    android:textColorLink="#FFFFFF" />
+            </ScrollView>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_height="350dp"
+                android:background="@drawable/home_btn"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:scrollbarSize="4dp"
+                android:scrollbarThumbVertical="@drawable/scrollbar">
             <EditText
                 android:id="@+id/notice_desc"
                 android:layout_below="@id/notice_head"
                 android:layout_width="match_parent"
+                android:hint="Add Descrption"
+                android:fontFamily="@font/poppins_light"
+                android:textColorHint="@color/black"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 />
+         </ScrollView>
 
             <Button
-                android:id="@+id/button"
-                android:layout_width="match_parent"
+                android:id="@+id/add_notice_btn"
+                android:layout_width="150dp"
+                android:layout_marginTop="15dp"
+                android:hapticFeedbackEnabled="true"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_semibold"
+                android:background="@drawable/login_btn"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="Submit" />
         </LinearLayout>
 
 

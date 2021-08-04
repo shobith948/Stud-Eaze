@@ -38,83 +38,216 @@
 
 
     </LinearLayout>
-
     <LinearLayout
-        android:layout_below="@+id/admin_head"
+        android:id="@+id/t_linear_horizontal1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="175dp"
+        android:layout_below="@id/admin_head"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
 
-        <Button
-            android:id="@+id/notice"
-            android:layout_width="260dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/home_btn"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Add notice"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#2C2A40"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/remove_std"
-            android:layout_width="260dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/home_btn"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Remove Student"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#2C2A40"
-            android:textSize="24sp" />
-
-        <Button
+        <androidx.cardview.widget.CardView
             android:id="@+id/add_teacher"
-            android:layout_width="260dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/home_btn"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Add Teacher"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#2C2A40"
-            android:textSize="24sp" />
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="5dp">
 
-        <Button
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/card_view_dash">
+
+
+                <TextView
+                    android:id="@+id/take_attendance_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/take_attendance_image"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Teacher"
+                    android:textSize="24sp" />
+
+                <ImageView
+                    android:id="@+id/take_attendance_image"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/add_teach" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/remove_teacher"
-            android:layout_width="260dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/home_btn"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Remove Teacher"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#2C2A40"
-            android:textSize="24sp" />
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="5dp">
 
-        <Button
-            android:id="@+id/add_Table"
-            android:layout_width="260dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/home_btn"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="add shedule"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#2C2A40"
-            android:textSize="24sp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/card_view_dash">
+
+                <TextView
+                    android:id="@+id/T_marks_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/T_marks_image"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Teacher"
+                    android:textSize="24sp" />
+
+                <ImageView
+                    android:id="@+id/T_marks_image"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/rm_teach" />
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/t_linear_horizontal2"
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:layout_below="@id/t_linear_horizontal1"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/notice"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/card_view_dash">
+
+                <TextView
+                    android:id="@+id/T_notice_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/T_notice_image"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Notice"
+                    android:textSize="24sp" />
+
+                <ImageView
+                    android:id="@+id/T_notice_image"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/add_notice" />
+            </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/add_Table"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/card_view_dash">
+
+
+                <ImageView
+                    android:id="@+id/I_table"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/add_table" />
+
+                <TextView
+                    android:id="@+id/shedule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/I_table"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Shedule"
+                    android:textSize="24sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_horizontal3"
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:layout_below="@id/t_linear_horizontal2"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/del_student"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/card_view_dash">
+
+
+                <ImageView
+                    android:id="@+id/add_Ist"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/rm_stud" />
+
+                <TextView
+                    android:id="@+id/add_stext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/add_Ist"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="student"
+                    android:textSize="24sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+
 </RelativeLayout>

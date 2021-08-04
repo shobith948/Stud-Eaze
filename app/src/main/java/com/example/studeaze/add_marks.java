@@ -27,7 +27,7 @@ import io.paperdb.Paper;
 public class add_marks extends AppCompatActivity {
     private Button AddMarksButton;
     private TextView sub_display;
-    private EditText Adusn, Adc1, Adc2, Adc3, Adavg, Adattendence;
+    private EditText Adusn, Adc1, Adc2, Adc3, Adattendance;
     String SubCode;
 
     @Override
@@ -42,16 +42,17 @@ public class add_marks extends AppCompatActivity {
         Adc1 = findViewById(R.id.test1);
         Adc2 = findViewById(R.id.test2);
         Adc3 = findViewById(R.id.test3);
-        Adavg = findViewById(R.id.avg);
-        Adattendence = findViewById(R.id.attendence);
+        Adattendance = findViewById(R.id.attendance);
         AddMarksButton = findViewById(R.id.update);
 
-        String UserSubcodeKey = Paper.book().read("subcode");
-        String UserPasswordKey = Paper.book().read("password");
+        String TeacherSubKey = Paper.book().read("subcode");
+        String TeacherPasswordKey = Paper.book().read("t_password");
 
-        if(UserSubcodeKey != "" && UserPasswordKey != ""){
-            if(!TextUtils.isEmpty(UserSubcodeKey) && !TextUtils.isEmpty(UserPasswordKey)){
-                teacherNameDisplay(UserSubcodeKey, UserPasswordKey);
+        if (TeacherSubKey != "" && TeacherPasswordKey != "")
+        {
+            if(!TextUtils.isEmpty(TeacherSubKey) && !TextUtils.isEmpty(TeacherPasswordKey))
+            {
+                teacherNameDisplay(TeacherSubKey, TeacherPasswordKey);
             }
         }
 
@@ -63,16 +64,21 @@ public class add_marks extends AppCompatActivity {
                 String c1 = Adc1.getText().toString();
                 String c2 = Adc2.getText().toString();
                 String c3 = Adc3.getText().toString();
-                String avg = Adavg.getText().toString();
-                String attendence = Adattendence.getText().toString();
+                String avg = String.valueOf(Math.round((Float.parseFloat(c1) + Float.parseFloat(c2) + Float.parseFloat(c3))/3));
+                String attendance = Adattendance.getText().toString();
 
-                UpdateMarks(attendence, usn, c1, c2, c3, avg);
+                if(Float.parseFloat(c1) <= 50 && Float.parseFloat(c2) <= 50 && Float.parseFloat(c3) <= 50 && Float.parseFloat(avg) <= 50) {
+                    UpdateMarks(attendance, usn, c1, c2, c3, avg);
+                }
+                else {
+                    Toast.makeText(add_marks.this, "Entered marks value cannot be greater than 50", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
     }
 
-    private void UpdateMarks(final String attendence, final String usn, final String c1, final String c2, final String c3, final String avg) {
+    private void UpdateMarks(final String attendance, final String usn, final String c1, final String c2, final String c3, final String avg) {
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference().child("Marks");
         SubCode = Paper.book().read("subcode");
@@ -86,7 +92,7 @@ public class add_marks extends AppCompatActivity {
                 marksdataMap.put("c2", c2);
                 marksdataMap.put("c3", c3);
                 marksdataMap.put("avg", avg);
-                marksdataMap.put("attendence", attendence);
+                marksdataMap.put("attendance", attendance);
                 marksdataMap.put("SubCode", SubCode);
 
                 RootRef.child(usn).child(SubCode).updateChildren(marksdataMap)
@@ -94,7 +100,7 @@ public class add_marks extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(add_marks.this, "Details of usn " + usn + "added successfull", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(add_marks.this, "Details of USN " + usn + "added successfully", Toast.LENGTH_SHORT).show();
 
                                     Intent intent = new Intent(add_marks.this, teach_dash.class);
                                     startActivity(intent);
@@ -115,20 +121,20 @@ public class add_marks extends AppCompatActivity {
         });
     }
 
-    private void teacherNameDisplay(String subcode, String s_pass) {
+    private void teacherNameDisplay(final String subcode, final String t_pass) {
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
 
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.child("students").child(subcode).exists()) {
-                    students studentsData = dataSnapshot.child("students").child(subcode).getValue(students.class);
+                if (dataSnapshot.child("teachers").child(subcode).exists()) {
+                    students teachersData = dataSnapshot.child("teachers").child(subcode).getValue(students.class);
 
-                    if (studentsData.getsubcode().equals(subcode)) {
-                        if (studentsData.getPassword().equals(s_pass)) {
-                            String s_name = studentsData.getsubcode();
-                            sub_display.setText(s_name);
+                    if (teachersData.getsubcode().equals(subcode)) {
+                        if (teachersData.getPassword().equals(t_pass)) {
+                            String t_subcode = teachersData.getsubcode();
+                            sub_display.setText(t_subcode);
                         }
                     }
                 }

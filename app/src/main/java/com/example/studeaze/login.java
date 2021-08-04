@@ -7,6 +7,7 @@ import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -53,28 +54,34 @@ public class login extends AppCompatActivity {
 
         reg = findViewById(R.id.reg);
 
+        reg.setOnClickListener(new View.OnClickListener() {
+                                   @Override
+                                   public void onClick(View view) {
 
-        loginbtn.setOnClickListener(v -> {
-            if(Susn.getText().toString().equals("admin") && Spassword.getText().toString().equals("admin123")){
-                Paper.book().write("usn", Susn.getText().toString());
-                Paper.book().write("password", Spassword.getText().toString());
-                loading_dialog.startLoadingDialog();
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(login.this, "You are now an Admin", Toast.LENGTH_SHORT).show();
-                        loading_dialog.dismissDialog();
-                        Intent intent = new Intent(login.this,admin.class);
-                        startActivity(intent);
-                        finish();
+                                       Intent intent = new Intent(login.this, reg_student.class);
+                                       startActivity(intent);
+                                   }
+                               });
+                loginbtn.setOnClickListener(v -> {
+                    if (Susn.getText().toString().equals("admin") && Spassword.getText().toString().equals("admin123")) {
+                        Paper.book().write("usn", Susn.getText().toString());
+                        Paper.book().write("password", Spassword.getText().toString());
+                        loading_dialog.startLoadingDialog();
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(login.this, "You are now an Admin", Toast.LENGTH_SHORT).show();
+                                loading_dialog.dismissDialog();
+                                Intent intent = new Intent(login.this, admin.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        }, LOADING_DIALOG);
+                    } else {
+                        LoginStudent();
                     }
-                },LOADING_DIALOG);
-            }
-            else {
-                LoginStudent();
-            }
-        });
+                });
     }
 
     public  void regStudent(){

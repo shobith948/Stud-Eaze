@@ -6,20 +6,20 @@ class marks {
     private String c2;
     private String c3;
     private String avg;
-    private String attendence;
+    private String attendance;
     private String SubCode;
     public  marks(){
 
     }
 
-    public marks(String SubCode, String usn, String c1, String c2, String c3,String avg,String attendence) {
+    public marks(String SubCode, String usn, String c1, String c2, String c3,String avg,String attendance) {
         this.SubCode= SubCode;
         this.usn = usn;
         this.c1 = c1;
         this.c2 = c2;
         this.c3 = c3;
         this.avg = avg;
-        this.attendence = attendence;
+        this.attendance = attendance;
     }
     public String getSubCode(){
         return SubCode;
@@ -69,12 +69,11 @@ class marks {
         this.avg = avg;
     }
 
-    public String getAttendence() {
-        return attendence;
+    public String getAttendance() {
+        return attendance;
     }
 
-    public void setAttendence(String attendence) {
-        this.attendence = attendence;
+    public void setAttendance(String attendance) {
+        this.attendance = attendance;
     }
 }
-

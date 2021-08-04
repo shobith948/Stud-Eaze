@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudEaze">
-        <activity android:name=".loading_dialog"></activity>
+        <activity android:name=".get_attendance"></activity>
+        <activity android:name=".attendance_recycler" />
+        <activity android:name=".loading_dialog" />
         <activity android:name=".add_marks" />
         <activity android:name=".marks_recycler" />
         <activity android:name=".image_upload" />

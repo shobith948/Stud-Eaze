@@ -7,38 +7,42 @@
     tools:context=".splash_screen"
     android:background="@color/light">
 
+
     <ImageView
         android:id="@+id/splash_image_view"
-        android:layout_width="400dp"
-        android:layout_height="500dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="10dp"
-        android:src="@drawable/splash_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="450dp"
+        android:layout_height="750dp"
+        android:foregroundGravity="center"
+        android:scaleType="centerCrop"
+
+        android:src="@drawable/splash"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="-10dp" />
 
     <TextView
         android:id="@+id/splash_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:fontFamily="@font/bangers"
         android:text="Stud Eaze"
         android:textAlignment="center"
         android:textSize="70sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/splash_image_view"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/splash_image_view" />
+        app:layout_constraintTop_toTopOf="@+id/splash_image_view"
+        app:layout_constraintVertical_bias="0.563" />
 
     <TextView
         android:id="@+id/splash_text_view2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="Attendance and Progress App"
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.086"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/splash_text_view" />
 

@@ -20,8 +20,8 @@ import com.google.firebase.database.ValueEventListener;
 import io.paperdb.Paper;
 
 public class teach_dash extends AppCompatActivity implements View.OnClickListener{
-    private TextView name,disSubcode;
-    private CardView take_attendance, marks, notice;
+    private TextView name, disSubcode;
+    private CardView take_attendance, marks, notice, timetable;
     private Button logout;
 
     @Override
@@ -31,15 +31,16 @@ public class teach_dash extends AppCompatActivity implements View.OnClickListene
 
         name = findViewById(R.id.T_text_name);
         disSubcode = findViewById(R.id.disSube);
+        take_attendance = (CardView) findViewById(R.id.take_attendance);
         marks = (CardView) findViewById(R.id.T_marks);
         notice = (CardView) findViewById(R.id.T_notice);
+     //   timetable = (CardView) findViewById(R.id.T_view_class);
         logout = (Button) findViewById(R.id.T_log_out);
-        take_attendance = (CardView) findViewById(R.id.take_attendance);
 
         take_attendance.setOnClickListener(this);
         marks.setOnClickListener(this);
         notice.setOnClickListener(this);
-
+       // timetable.setOnClickListener(this);
 
         Paper.init(this);
 
@@ -76,8 +77,8 @@ public class teach_dash extends AppCompatActivity implements View.OnClickListene
 
                     if (teachersData.getsubcode().equals(s_code)) {
                         if (teachersData.getPassword().equals(t_pass)) {
-                            String t_subcode = teachersData.getsubcode();
                             String t_name = teachersData.getName();
+                            String t_subcode = teachersData.getsubcode();
                             name.setText(t_name);
                             disSubcode.setText(t_subcode);
                         }
@@ -97,6 +98,8 @@ public class teach_dash extends AppCompatActivity implements View.OnClickListene
         Intent i;
 
         switch (view.getId()) {
+            case R.id.take_attendance:
+
             case R.id.T_marks:
                 i = new Intent(this, add_marks.class);
                 startActivity(i);
@@ -107,11 +110,10 @@ public class teach_dash extends AppCompatActivity implements View.OnClickListene
                 startActivity(i);
                 break;
 
-            case R.id.take_attendance:
-                i = new Intent(this, add_marks.class);
-                startActivity(i);
-                break;
-
+         //   case R.id.T_view_class:
+           //     i = new Intent(this, TimeTableDisplay.class);
+          //      startActivity(i);
+          //      break;
         }
     }
 

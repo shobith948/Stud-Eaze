@@ -17,20 +17,20 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import io.paperdb.Paper;
 
-public class marks_recycler extends AppCompatActivity {
-    RecyclerView recyclerView;
+public class attendance_recycler extends AppCompatActivity {
+    RecyclerView a_recyclerView;
     DatabaseReference rootref;
     String usn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_marks_recycler);
+        setContentView(R.layout.activity_attendance_recycler);
 
         Paper.init(this);
         usn = Paper.book().read("usn");
 
-        recyclerView = findViewById(R.id.marks_recycler);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        a_recyclerView = findViewById(R.id.attendance_recycler);
+        a_recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         rootref = FirebaseDatabase.getInstance().getReference().child("Marks").child(usn);
     }
@@ -43,26 +43,23 @@ public class marks_recycler extends AppCompatActivity {
                         .setQuery(rootref, marks.class)
                         .build();
 
-        FirebaseRecyclerAdapter<marks, get_marks> adapter =
-                new FirebaseRecyclerAdapter<marks, get_marks>(options) {
+        FirebaseRecyclerAdapter<marks, get_attendance> adapter =
+                new FirebaseRecyclerAdapter<marks, get_attendance>(options) {
                     @Override
-                    protected void onBindViewHolder(@NonNull get_marks holder, int position, @NonNull marks model) {
+                    protected void onBindViewHolder(@NonNull get_attendance holder, int position, @NonNull marks model) {
                         holder.usn.setText("" + model.getSubCode());
-                        holder.c1.setText("" + model.getc1() +"/50");
-                        holder.c2.setText("" + model.getC2() +"/50");
-                        holder.c3.setText("" + model.getC3() +"/50");
-                        holder.avg.setText("" + model.getAvg() +"/50");
+                        holder.attendance.setText("" + model.getAttendance());
                     }
 
                     @NonNull
                     @Override
-                    public get_marks onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.marks_item, parent, false);
-                        return new get_marks(view);
+                    public get_attendance onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.attendance_item, parent, false);
+                        return new get_attendance(view);
                     }
                 };
 
-        recyclerView.setAdapter(adapter);
+        a_recyclerView.setAdapter(adapter);
         adapter.startListening();
     }
 }

@@ -87,22 +87,12 @@
             android:textAlignment="inherit"
             android:textColorHint="#AA00FF" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:fontFamily="@font/poppins_light"
-            android:layout_marginTop="10dp"
-            android:text="forgot pasword?" />
-
-
         <Button
             android:id="@+id/s_login"
             android:layout_width="150dp"
             android:layout_height="55dp"
             android:layout_marginLeft="220dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/login_btn"
             android:fontFamily="@font/poppins_semibold"
             android:text="Login"

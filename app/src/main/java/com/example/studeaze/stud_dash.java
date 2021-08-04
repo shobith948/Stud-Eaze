@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,19 +19,27 @@ import com.google.firebase.database.ValueEventListener;
 
 import io.paperdb.Paper;
 
-public class stud_dash extends AppCompatActivity {
+public class stud_dash extends AppCompatActivity implements View.OnClickListener{
     private TextView student_name;
-    private Button view_attNmarks, timetable, logout , notice;
+    private CardView view_attendance, marks, notice, timetable;
+    private Button logout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stud_dash);
 
         student_name = findViewById(R.id.S_text_name);
-        view_attNmarks = findViewById(R.id.view_MnA);
-        notice = findViewById(R.id.S_notice);
-        logout = findViewById(R.id.S_log_out);
+        view_attendance = (CardView) findViewById(R.id.view_attendance);
+        marks = (CardView) findViewById(R.id.S_marks);
+        notice = (CardView) findViewById(R.id.S_notice);
+       // timetable = (CardView) findViewById(R.id.S_view_class);
+        logout =  findViewById(R.id.S_log_out);
 
+        view_attendance.setOnClickListener(this);
+        marks.setOnClickListener(this);
+        notice.setOnClickListener(this);
+     //   timetable.setOnClickListener(this);
 
         Paper.init(this);
 
@@ -43,13 +52,6 @@ public class stud_dash extends AppCompatActivity {
             }
         }
 
-        view_attNmarks.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(stud_dash.this , marks_recycler.class));
-            }
-        });
-
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,16 +60,6 @@ public class stud_dash extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        notice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(stud_dash.this,ts_notice.class);
-                startActivity(intent);
-
-            }
-        });
-
     }
 
     private void studentNameDisplay(String usn, String s_pass) {
@@ -94,6 +86,33 @@ public class stud_dash extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent i;
+
+        switch (view.getId()) {
+            case R.id.view_attendance:
+                i = new Intent(this, attendance_recycler.class);
+                startActivity(i);
+                break;
+
+            case R.id.S_marks:
+                i = new Intent(this, marks_recycler.class);
+                startActivity(i);
+                break;
+
+            case R.id.S_notice:
+                i = new Intent(this, ts_notice.class);
+                startActivity(i);
+                break;
+
+       //     case R.id.S_view_class:
+          //      i = new Intent(this, TimeTableDisplay.class);
+          //      startActivity(i);
+          //      break;
+        }
     }
 
     @Override

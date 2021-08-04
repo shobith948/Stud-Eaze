@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+
+        android:id="@+id/usn_head"
+        android:layout_width="110dp"
+        android:layout_height="55dp"
+        android:layout_marginRight="-3dp"
+        android:layout_marginBottom="-2dp"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/marks_border"
+        android:fontFamily="@font/poppins_semibold"
+        android:textAlignment="center"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/test1"
+        android:layout_marginRight="-3dp"
+        android:layout_marginBottom="-2dp"
+        android:gravity="center"
+        android:layout_width="70dp"
+        android:layout_height="55dp"
+        android:background="@drawable/marks_border"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_toEndOf="@+id/usn_head"/>
+
+    <TextView
+        android:id="@+id/test2"
+        android:layout_marginRight="-3dp"
+        android:layout_marginBottom="-2dp"
+        android:gravity="center"
+        android:layout_width="70dp"
+        android:layout_height="55dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:background="@drawable/marks_border"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_toEndOf="@+id/test1" />
+
+    <TextView
+        android:id="@+id/test3"
+        android:layout_marginRight="-3dp"
+        android:layout_marginBottom="-2dp"
+        android:gravity="center"
+        android:layout_width="70dp"
+        android:layout_height="55dp"
+        android:textStyle="bold"
+        android:background="@drawable/marks_border"
+        android:textAlignment="center"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_toEndOf="@+id/test2" />
+
+    <TextView
+        android:id="@+id/avg"
+        android:layout_marginRight="-3dp"
+        android:layout_marginBottom="-2dp"
+        android:gravity="center"
+        android:layout_width="85dp"
+        android:layout_height="55dp"
+        android:background="@drawable/marks_border"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_toEndOf="@+id/test3" />
+
+</RelativeLayout>

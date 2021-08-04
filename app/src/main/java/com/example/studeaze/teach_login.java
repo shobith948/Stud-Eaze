@@ -38,6 +38,8 @@ public class teach_login extends AppCompatActivity {
         Tpassword = findViewById(R.id.tpass);
         final loading_dialog loading_dialog = new loading_dialog(teach_login.this);
 
+        Paper.init(this);
+
         String s= "Teacher login";
         SpannableString ss1=  new SpannableString(s);
         ss1.setSpan(new RelativeSizeSpan(1.5f), 0,8, 0); // set size

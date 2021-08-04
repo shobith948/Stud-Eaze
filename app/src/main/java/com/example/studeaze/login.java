@@ -128,7 +128,6 @@ public class login extends AppCompatActivity {
 
                     if (userData.getUsn().equals(usn))
                     {
-
                         if (userData.getPassword().equals(password)) {
                             Paper.book().write("usn", usn);
                             Paper.book().write("password", password);

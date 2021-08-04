@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".attendance_recycler">
+
+    <LinearLayout
+        android:id="@+id/a_lay1"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:background="@drawable/home_design"/>
+
+    <TextView
+        android:id="@+id/T_text_name_attendance"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Attendance"
+        android:textColor="#fff"
+        android:textSize="45sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/a_lay1">
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="-3dp"
+        android:layout_marginBottom="-2dp"
+        android:id="@+id/a_usn_head"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:text="Subject\nCode"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_semibold"
+        android:textAlignment="center"
+        android:background="@drawable/marks_border"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:layout_below="@id/a_lay1"/>
+
+    <TextView
+        android:id="@+id/attendance"
+        android:layout_marginBottom="-2dp"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/a_lay1"
+        android:text="Attendance"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_semibold"
+        android:textAlignment="center"
+        android:background="@drawable/marks_border"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:layout_toEndOf="@+id/a_usn_head" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/attendance_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/a_usn_head"
+        />
+
+</RelativeLayout>

@@ -29,6 +29,7 @@
             android:id="@+id/S_text_name"
             android:layout_width="370dp"
             android:layout_height="70dp"
+            android:layout_marginTop="-10dp"
             android:layout_marginLeft="15dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="Student"
@@ -40,13 +41,27 @@
             android:id="@+id/text_title"
             android:layout_width="370dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="15dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="Welcome to student dashboard"
             android:textColor="#2c2a40"
             android:padding="-5dp"
             android:textSize="20sp"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/S_log_out"
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/home_btn"
+            android:drawablePadding="-10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:paddingStart="10dp"
+            android:drawableLeft="@drawable/ic_baseline_exit_to_app_24"
+            android:text="Logout" />
+
     </LinearLayout>
 
     <!--<LinearLayout
@@ -282,19 +297,19 @@
         android:orientation="horizontal"
         android:padding="10dp">
 
-        <Button
-            android:id="@+id/S_log_out"
-            android:layout_width="260dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="60dp"
-            android:background="@drawable/home_btn"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Log Out "
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#2C2A40"
-            android:textSize="24sp" />
+<!--        <Button-->
+<!--            android:id="@+id/view_schedule"-->
+<!--            android:layout_width="260dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginLeft="60dp"-->
+<!--            android:background="@drawable/home_btn"-->
+<!--            android:fontFamily="@font/poppins_semibold"-->
+<!--            android:text="View Schedule"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:textColor="#2C2A40"-->
+<!--            android:textSize="24sp" />-->
 
     </LinearLayout>
 

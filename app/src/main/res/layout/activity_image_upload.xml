@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".image_upload">
+
+
+    <Spinner
+        android:id="@+id/spinner3"
+        android:layout_width="262dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="155dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/home_btn" />
+
+    <Button
+        android:id="@+id/button_choose_image"
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/home_btn"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Choose file" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/upload_btn"
+        android:layout_below="@id/button_choose_image"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="30dp" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:visibility="invisible"
+        android:id="@+id/progressBar"
+        android:layout_below="@id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/upload_btn"
+        android:layout_width="124dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:background="@drawable/home_btn"
+        android:text="Upload" />
+
+    <Button
+        android:id="@+id/showall_btn"
+        android:layout_width="124dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/home_btn"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="show all" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="249dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="180dp"
+        android:text="Choose Semester"
+        android:fontFamily="@font/poppins_semibold" />
+
+
+</RelativeLayout>

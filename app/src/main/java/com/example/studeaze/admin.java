@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import io.paperdb.Paper;
 
 public class admin extends AppCompatActivity {
-Button rm_std, add_teach, rm_teach, add_notice, logout;
+Button rm_std, add_teach, rm_teach, add_notice, timetable, logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +36,7 @@ Button rm_std, add_teach, rm_teach, add_notice, logout;
         add_teach = findViewById(R.id.add_teacher);
         rm_teach = findViewById(R.id.remove_teacher);
         add_notice = findViewById(R.id.notice);
+        timetable = (Button) findViewById(R.id.add_Table);
         logout = findViewById(R.id.log_out);
 
 
@@ -63,6 +64,15 @@ Button rm_std, add_teach, rm_teach, add_notice, logout;
         });
 
         Paper.init(this);
+
+        timetable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(admin.this,image_upload.class);
+                startActivity(intent);
+
+            }
+        });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

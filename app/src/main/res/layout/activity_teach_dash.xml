@@ -15,31 +15,45 @@
 
         <TextView
             android:id="@+id/text_dash"
-            android:layout_width="70dp"
-            android:layout_height="50dp"
+            android:layout_width="80dp"
+            android:layout_height="64dp"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="Hi, "
             android:textColor="#2c2a40"
-            android:textSize="35sp"
+            android:textSize="40sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/T_text_name"
-            android:layout_width="370dp"
+            android:layout_width="300dp"
             android:layout_height="70dp"
+            android:layout_marginTop="-15dp"
             android:layout_marginLeft="15dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="Teacher"
             android:textColor="#fff"
-            android:textSize="45sp"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/disSube"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Subject Code"
+            android:layout_marginTop="-10dp"
+            android:textColor="@color/white"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/text_title"
-            android:layout_width="370dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="-10dp"
             android:layout_marginLeft="15dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="Welcome to teacher dashboard"
@@ -47,68 +61,23 @@
             android:padding="-5dp"
             android:textSize="20sp"
             android:textStyle="bold" />
-    </LinearLayout>
 
-    <!-- <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_below="@id/stud_head">
-
-        <Button
-            android:id="@+id/take_attendance"
-            android:layout_width="260dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="100dp"
-            android:background="@drawable/home_btn"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Take Attendance"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#2C2A40"
-            android:textSize="24sp" />
-        <Button
-            android:id="@+id/T_view_class"
-            android:layout_width="260dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/home_btn"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Time Table "
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#2C2A40"
-            android:textSize="24sp" />
-        <Button
-            android:id="@+id/notice_display"
-            android:layout_width="260dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/home_btn"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Notice"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#2C2A40"
-            android:textSize="24sp" />
         <Button
             android:id="@+id/T_log_out"
-            android:layout_width="260dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/home_btn"
             android:fontFamily="@font/poppins_semibold"
-            android:text="Log Out "
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#2C2A40"
-            android:textSize="24sp" />
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/home_btn"
+            android:drawablePadding="-10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:paddingStart="10dp"
+            android:drawableLeft="@drawable/ic_baseline_exit_to_app_24"
+            android:text="Logout" />
 
-    </LinearLayout> -->
+    </LinearLayout>
+
+
 
     <LinearLayout
         android:id="@+id/t_linear_horizontal1"
@@ -282,19 +251,19 @@
         android:orientation="horizontal"
         android:padding="10dp">
 
-        <Button
-            android:id="@+id/T_log_out"
-            android:layout_width="260dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="60dp"
-            android:background="@drawable/home_btn"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Log Out "
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#2C2A40"
-            android:textSize="24sp" />
+<!--        <Button-->
+<!--            android:id="@+id/view_table"-->
+<!--            android:layout_width="260dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginLeft="60dp"-->
+<!--            android:background="@drawable/home_btn"-->
+<!--            android:fontFamily="@font/poppins_semibold"-->
+<!--            android:text="View Schedule"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:textColor="#2C2A40"-->
+<!--            android:textSize="24sp" />-->
 
     </LinearLayout>
 

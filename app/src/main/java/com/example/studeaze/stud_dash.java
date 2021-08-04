@@ -1,7 +1,6 @@
 package com.example.studeaze;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -10,12 +9,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -99,12 +94,12 @@ public class stud_dash extends AppCompatActivity implements View.OnClickListener
 
         switch (view.getId()) {
             case R.id.view_attendance:
-                i = new Intent(this, ts_notice.class);
+                i = new Intent(this, attendance_recycler.class);
                 startActivity(i);
                 break;
 
             case R.id.S_marks:
-                i = new Intent(this, home.class);
+                i = new Intent(this, marks_recycler.class);
                 startActivity(i);
                 break;
 
@@ -114,7 +109,7 @@ public class stud_dash extends AppCompatActivity implements View.OnClickListener
                 break;
 
             case R.id.S_view_class:
-                i = new Intent(this, home.class);
+                i = new Intent(this, TimeTableDisplay.class);
                 startActivity(i);
                 break;
         }

@@ -107,8 +107,6 @@ public class AddMarksActivity extends AppCompatActivity { //class for the teache
                 UsersModel studentData = dataSnapshot.child("students").child(usn).getValue(UsersModel.class);
                 UsersModel teacherData = dataSnapshot.child("teachers").child(SubCode).getValue(UsersModel.class);
 
-                //checks if student and teacher belong to same semester
-                if(dataSnapshot.child("students").child(usn).exists() && Objects.equals(studentData.getSemester(), teacherData.getSemester())) {
                     RootRef.child(usn).child(SubCode).updateChildren(marksdataMap) //Creating/Updating child node
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
@@ -125,10 +123,6 @@ public class AddMarksActivity extends AppCompatActivity { //class for the teache
                                     }
                                 }
                             });
-                }
-                else {
-                    Toast.makeText(AddMarksActivity.this, "Enter valid USN", Toast.LENGTH_SHORT).show();
-                }
             }
 
             @Override

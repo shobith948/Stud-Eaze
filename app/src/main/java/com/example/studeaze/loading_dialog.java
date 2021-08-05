@@ -6,7 +6,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.view.LayoutInflater;
 
-public class loading_dialog extends AppCompatActivity {
+public class loading_dialog extends AppCompatActivity { //class for loading dialog
 
     private static Activity activity;
     private static AlertDialog dialog;
@@ -14,11 +14,11 @@ public class loading_dialog extends AppCompatActivity {
     public loading_dialog(){
 
     }
-
+    //constructor
     public loading_dialog(Activity myActivity) {
         activity = myActivity;
     }
-
+    //Function to start loading dialog
     static void startLoadingDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 
@@ -29,7 +29,7 @@ public class loading_dialog extends AppCompatActivity {
         dialog = builder.create();
         dialog.show();
     }
-
+    //Function to dismiss loading dialog
     static void dismissDialog(){
         dialog.dismiss();
     }

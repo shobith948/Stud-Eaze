@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.app.AlertDialog;
+import androidx.cardview.widget.CardView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,20 +28,23 @@ import com.google.firebase.database.ValueEventListener;
 
 import io.paperdb.Paper;
 
-public class admin extends AppCompatActivity {
-Button rm_std, add_teach, rm_teach, add_notice, timetable, logout;
+public class admin extends AppCompatActivity { //class for admin dashboard activity
+    //User interface elements
+    Button logout;
+    CardView rm_std, add_teach, rm_teach, add_notice, timetable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState); //called when activity is started, to perform initialisation
         setContentView(R.layout.activity_admin);
-        rm_std = findViewById(R.id.remove_std);
-        add_teach = findViewById(R.id.add_teacher);
-        rm_teach = findViewById(R.id.remove_teacher);
-        add_notice = findViewById(R.id.notice);
-        timetable = (Button) findViewById(R.id.add_Table);
-        logout = findViewById(R.id.log_out);
+        //Finds a view that was identified by the android:id XML attribute that was processed in onCreate.
+        rm_std = (CardView) findViewById(R.id.del_student);
+        add_teach = (CardView) findViewById(R.id.add_teacher);
+        rm_teach = (CardView) findViewById(R.id.remove_teacher);
+        add_notice = (CardView) findViewById(R.id.notice);
+        timetable = (CardView) findViewById(R.id.add_schedule);
+        logout = (Button) findViewById(R.id.log_out);
 
-
+        //Designing Admin Dashboard text
         String s= "Admin Dashboard";
         SpannableString ss1=  new SpannableString(s);
         ss1.setSpan(new RelativeSizeSpan(2f), 0,6, 0); // set size
@@ -47,6 +52,7 @@ Button rm_std, add_teach, rm_teach, add_notice, timetable, logout;
         TextView tv= (TextView) findViewById(R.id.admin_htext);
         tv.setText(ss1);
 
+        //Register a callback to be invoked when this view is clicked. If this view is not clickable, it becomes clickable.
         rm_std.setOnClickListener(View ->{
             remStudent();
         });
@@ -63,14 +69,13 @@ Button rm_std, add_teach, rm_teach, add_notice, timetable, logout;
             add_Notice();
         });
 
-        Paper.init(this);
+        Paper.init(this);  //Used to initialise session of user
 
         timetable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(admin.this,image_upload.class);
                 startActivity(intent);
-
             }
         });
 
@@ -84,11 +89,13 @@ Button rm_std, add_teach, rm_teach, add_notice, timetable, logout;
         });
     }
 
+    //Function that redirects to add_teacher class
     public  void regTeacher(){
         Intent intent = new Intent(this,add_teacher.class);
         startActivity(intent);
     }
 
+    //Function that is used to remove student through alert dialog
     public  void remStudent(){
         final AlertDialog.Builder alert = new AlertDialog.Builder(admin.this);
         View mView = getLayoutInflater().inflate(R.layout.del_student,null);
@@ -152,8 +159,9 @@ Button rm_std, add_teach, rm_teach, add_notice, timetable, logout;
         alertDialog.show();
     }
 
+    //Function that is used to remove teacher through alert dialog
     public  void remTeacher(){
-        final AlertDialog.Builder alert = new AlertDialog.Builder(admin.this);
+        final AlertDialog.Builder alert = new AlertDialog.Builder(admin.this); //alert dialog builder
         View mView = getLayoutInflater().inflate(R.layout.del_teacher,null);
         final EditText rem_T_txt = (EditText)mView.findViewById(R.id.rem_T_txt);
         Button btn_cancel = (Button)mView.findViewById(R.id.T_btn_cancel);
@@ -161,11 +169,12 @@ Button rm_std, add_teach, rm_teach, add_notice, timetable, logout;
         alert.setView(mView);
         final AlertDialog alertDialog = alert.create();
         alertDialog.setCanceledOnTouchOutside(false);
+        //Register a callback to be invoked when this view is clicked. If this view is not clickable, it becomes clickable.
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 alertDialog.dismiss();
-            }
+            } //closing alert dialog on clicking cancel button
         });
         btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -184,11 +193,12 @@ Button rm_std, add_teach, rm_teach, add_notice, timetable, logout;
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                             if(dataSnapshot.child("teachers").child(sub_code).exists()){
-                                RootRef.child("teachers").child(sub_code).removeValue()
+                                RootRef.child("teachers").child(sub_code).removeValue() //removes value from teachers child node
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
-                                                if(task.isSuccessful()){
+                                                if(task.isSuccessful()){ //checks if deletion is successful or not
+                                                    //A toast is a view containing a quick little message for the user.
                                                     Toast.makeText(admin.this, "Teacher with Subject Code "+sub_code+" is removed Successfully", Toast.LENGTH_SHORT).show();
                                                 }
                                                 else {
@@ -216,6 +226,7 @@ Button rm_std, add_teach, rm_teach, add_notice, timetable, logout;
         alertDialog.show();
     }
 
+    //Function that redirects to add_notice class
     public  void add_Notice(){
         Intent intent = new Intent(this,add_notice.class);
         startActivity(intent);

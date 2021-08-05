@@ -9,28 +9,40 @@
 
     <ImageView
         android:id="@+id/splash_image_view"
-        android:layout_width="300dp"
-        android:layout_height="400dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="10dp"
-        android:src="@drawable/splash_image"
+        android:layout_width="450dp"
+        android:layout_height="750dp"
+        android:foregroundGravity="center"
+        android:scaleType="centerCrop"
+        android:src="@drawable/splash"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="-10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="400dp"-->
+<!--        android:layout_marginStart="10dp"-->
+<!--        android:layout_marginTop="100dp"-->
+<!--        android:layout_marginEnd="10dp"-->
+<!--        android:src="@drawable/splash_image"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <TextView
         android:id="@+id/splash_text_view"
         android:layout_marginTop="60dp"
+        android:layout_marginLeft="15dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bangers"
         android:text="Stud Eaze"
         android:textAlignment="center"
         android:textSize="50sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/splash_image_view"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/splash_image_view" />
+        app:layout_constraintTop_toTopOf="@+id/splash_image_view"
+        app:layout_constraintVertical_bias="0.9" />
 
     <TextView
         android:id="@+id/splash_text_view2"
@@ -39,6 +51,8 @@
         android:text="Attendance and Progress App"
         android:textAlignment="center"
         android:textSize="18sp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/splash_text_view" />

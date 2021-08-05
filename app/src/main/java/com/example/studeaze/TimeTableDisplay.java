@@ -17,28 +17,26 @@ import com.squareup.picasso.Picasso;
 
 import io.paperdb.Paper;
 
-public class TimeTableDisplay extends AppCompatActivity {
-
+public class TimeTableDisplay extends AppCompatActivity { //class for time table display
+    //user interface elements
     ImageView timetableimage;
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+        super.onCreate(savedInstanceState, persistentState);  //called when activity is started, to perform initialisation
         setContentView(R.layout.activity_time_table_display);
 
-        Paper.init(this);
+        Paper.init(this);  //used to initialise session of user
 
-
+        //Finds a view that was identified by the android:id XML attribute that was processed in onCreate.
         timetableimage = findViewById(R.id.timetableimage);
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        String usn = Paper.book().read("usn");
-
+        String usn = Paper.book().read("usn"); //retrieving student session
+        //Gets a DatabaseReference for the database specified child node.
         DatabaseReference rootref = FirebaseDatabase.getInstance().getReference().child("Time_Table");
         DatabaseReference rootref2 = FirebaseDatabase.getInstance().getReference().child("students").child(usn);
 
@@ -50,7 +48,7 @@ public class TimeTableDisplay extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         table tab =  snapshot.child(String.valueOf(sem)).getValue(table.class);
-                        Picasso.get().load(tab.getImageUrl()).into(timetableimage);
+                        Picasso.get().load(tab.getImageUrl()).into(timetableimage); //loading image into view using Picasso library
 
                     }
 

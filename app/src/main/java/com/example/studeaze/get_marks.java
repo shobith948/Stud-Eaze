@@ -5,14 +5,16 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-class get_marks extends RecyclerView.ViewHolder {
+class get_marks extends RecyclerView.ViewHolder { //class for marks view holder
+    //user interface elements
     public TextView usn,c1,c2, c3,avg;
 
-
+    //constructor
     public get_marks(View itemView)
     {
         super(itemView);
 
+        //Finds a view that was identified by the android:id XML attribute.
         usn = (TextView) itemView.findViewById(R.id.usn_head);
         c1 = (TextView) itemView.findViewById(R.id.test1);
         c2 = (TextView) itemView.findViewById(R.id.test2);

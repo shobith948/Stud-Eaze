@@ -23,23 +23,25 @@ import com.google.firebase.database.ValueEventListener;
 
 import io.paperdb.Paper;
 
-public class teach_login extends AppCompatActivity {
-
+public class teach_login extends AppCompatActivity { //class for teacher login
+    //user interface elements
     private EditText subcode, Tpassword;
     Button Tloginbtn;
-    private static int LOADING_DIALOG = 5000;
+    private static int LOADING_DIALOG = 5000; //variable to store 5000 value
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);  //called when activity is started, to perform initialisation
         setContentView(R.layout.activity_teach_login);
+        //Finds a view that was identified by the android:id XML attribute that was processed in onCreate.
         Tloginbtn = findViewById(R.id.tlogin_btn);
         subcode = findViewById(R.id.subcode);
         Tpassword = findViewById(R.id.tpass);
         final loading_dialog loading_dialog = new loading_dialog(teach_login.this);
 
-        Paper.init(this);
+        Paper.init(this);  //used to initialise session of user
 
+        //Designing Teacher login string
         String s= "Teacher login";
         SpannableString ss1=  new SpannableString(s);
         ss1.setSpan(new RelativeSizeSpan(1.5f), 0,8, 0); // set size
@@ -47,7 +49,9 @@ public class teach_login extends AppCompatActivity {
         TextView tv= (TextView) findViewById(R.id.tlogin);
         tv.setText(ss1);
 
+        //Register a callback to be invoked when this view is clicked. If this view is not clickable, it becomes clickable.
         Tloginbtn.setOnClickListener(v -> {
+            //admin login
             if(subcode.getText().toString().equals("admin") && Tpassword.getText().toString().equals("admin123")){
                 Paper.book().write("subcode", subcode.getText().toString());
                 Paper.book().write("t_password", Tpassword.getText().toString());
@@ -64,10 +68,12 @@ public class teach_login extends AppCompatActivity {
                 },LOADING_DIALOG);
 
             } else {
+                //teacher login
                 LoginTeacher();
             }
         });
     }
+    //Function for teacher login
     private void LoginTeacher()
     {
         String scode = subcode.getText().toString();
@@ -76,6 +82,7 @@ public class teach_login extends AppCompatActivity {
 
         if(TextUtils.isEmpty(scode))
         {
+            //A toast is a view containing a quick little message for the user.
             Toast.makeText(teach_login.this, "Please Enter subject code....", Toast.LENGTH_SHORT).show();
         }
         else
@@ -89,6 +96,7 @@ public class teach_login extends AppCompatActivity {
         }
     }
 
+    //Allow access to teacher on success
     private void AllowAccess(final String scode, final String Tpass)
     {
 
@@ -101,14 +109,16 @@ public class teach_login extends AppCompatActivity {
 
                 if (dataSnapshot.child("teachers").child(scode).exists())
                 {
-                    students userData = dataSnapshot.child("teachers").child(scode).getValue(students.class);
+                    students userData = dataSnapshot.child("teachers").child(scode).getValue(students.class); //Gets a DatabaseReference for the database specified child node.
 
                     if (userData.getsubcode().equals(scode))
                     {
 
                         if (userData.getPassword().equals(Tpass)) {
+                            //Storing teacher session
                             Paper.book().write("subcode", scode);
                             Paper.book().write("t_password", Tpass);
+                            //loading dialog
                             loading_dialog.startLoadingDialog();
                             Handler handler = new Handler();
                             handler.postDelayed(new Runnable() {

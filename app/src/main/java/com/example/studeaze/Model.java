@@ -1,6 +1,6 @@
 package com.example.studeaze;
 
-public class Model {
+public class Model { //Image model class
     private String imageUrl;
     public Model(){
 

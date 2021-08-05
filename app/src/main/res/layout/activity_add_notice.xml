@@ -34,64 +34,91 @@
         android:layout_alignParentBottom="true"
         android:orientation="vertical">
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/home_btn"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:scrollbarSize="4dp"
+            android:scrollbarThumbVertical="@drawable/scrollbar">
 
-        <EditText
-            android:id="@+id/notice_head"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="100dp"
-            android:ems="10"
-            android:fontFamily="@font/poppins_light"
-            android:hint="Topic"
-            android:includeFontPadding="true"
-            android:inputType="textPersonName"
-            android:lineSpacingExtra="15dp"
-            android:textAlignment="center"
-            android:textColor="#AA00FF"
-            android:textColorHint="#AA00FF"
-            android:textSize="24sp" />
+            <EditText
+                android:id="@+id/notice_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:hint="Enter Subject"
+                android:textColorHighlight="#FFFFFF"
+                android:textColorHint="@color/black"
+                android:textColorLink="#FFFFFF" />
 
-        <EditText
-            android:id="@+id/notice_desc"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="80dp"
-            android:inputType="textMultiLine"
-            android:ems="10"
-            android:fontFamily="@font/poppins_light"
-            android:hint="Details"
-            android:includeFontPadding="true"
-            android:lineSpacingExtra="15dp"
-            android:textAlignment="center"
-            android:textColor="#AA00FF"
-            android:textColorHint="#AA00FF"
-            android:textSize="24sp" />
+<!--        <EditText-->
+<!--            android:id="@+id/notice_head"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_marginTop="100dp"-->
+<!--            android:ems="10"-->
+<!--            android:fontFamily="@font/poppins_light"-->
+<!--            android:hint="Topic"-->
+<!--            android:includeFontPadding="true"-->
+<!--            android:inputType="textPersonName"-->
+<!--            android:lineSpacingExtra="15dp"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="#AA00FF"-->
+<!--            android:textColorHint="#AA00FF"-->
+<!--            android:textSize="24sp" />-->
+        </ScrollView>
 
-        <!--<EditText
-            android:id="@+id/notice_date"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="80dp"
-            android:ems="10"
-            android:fontFamily="@font/poppins_light"
-            android:hint="Date"
-            android:includeFontPadding="true"
-            android:inputType="date"
-            android:lineSpacingExtra="15dp"
-            android:textAlignment="center"
-            android:textColor="#AA00FF"
-            android:textColorHint="#AA00FF"
-            android:textSize="24sp" /> -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_height="350dp"
+            android:background="@drawable/home_btn"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:scrollbarSize="4dp"
+            android:scrollbarThumbVertical="@drawable/scrollbar">
+
+            <EditText
+                android:id="@+id/notice_desc"
+                android:layout_below="@id/notice_head"
+                android:layout_width="match_parent"
+                android:hint="Add Description"
+                android:fontFamily="@font/poppins_light"
+                android:textColorHint="@color/black"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp" />
+
+<!--        <EditText-->
+<!--            android:id="@+id/notice_desc"-->
+<!--            android:layout_width="350dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_marginTop="80dp"-->
+<!--            android:inputType="textMultiLine"-->
+<!--            android:ems="10"-->
+<!--            android:fontFamily="@font/poppins_light"-->
+<!--            android:hint="Details"-->
+<!--            android:includeFontPadding="true"-->
+<!--            android:lineSpacingExtra="15dp"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="#AA00FF"-->
+<!--            android:textColorHint="#AA00FF"-->
+<!--            android:textSize="24sp" />-->
+        </ScrollView>
 
         <Button
             android:id="@+id/add_notice_btn"
-            android:layout_width="400dp"
-            android:layout_height="55dp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="100dp"
+            android:hapticFeedbackEnabled="true"
+            android:layout_marginTop="25dp"
             android:background="@drawable/login_btn"
             android:fontFamily="@font/poppins_semibold"
             android:text="Add Notice"

@@ -17,22 +17,22 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import io.paperdb.Paper;
 
-public class marks_recycler extends AppCompatActivity {
+public class marks_recycler extends AppCompatActivity { //class for marks recycler
     RecyclerView recyclerView;
     DatabaseReference rootref;
     String usn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);  //called when activity is started, to perform initialisation
         setContentView(R.layout.activity_marks_recycler);
 
-        Paper.init(this);
+        Paper.init(this);  //used to initialise session of user
         usn = Paper.book().read("usn");
 
         recyclerView = findViewById(R.id.marks_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        rootref = FirebaseDatabase.getInstance().getReference().child("Marks").child(usn);
+        rootref = FirebaseDatabase.getInstance().getReference().child("Marks").child(usn);  //Gets a DatabaseReference for the database specified child node.
     }
     @Override
     public void onStart() {
@@ -42,10 +42,11 @@ public class marks_recycler extends AppCompatActivity {
                 new FirebaseRecyclerOptions.Builder<marks>()
                         .setQuery(rootref, marks.class)
                         .build();
-
+        //Firebase recycler adapter
         FirebaseRecyclerAdapter<marks, get_marks> adapter =
                 new FirebaseRecyclerAdapter<marks, get_marks>(options) {
                     @Override
+                    //Bind view
                     protected void onBindViewHolder(@NonNull get_marks holder, int position, @NonNull marks model) {
                         holder.usn.setText("" + model.getSubCode());
                         holder.c1.setText("" + model.getc1() +"/50");
@@ -56,6 +57,7 @@ public class marks_recycler extends AppCompatActivity {
 
                     @NonNull
                     @Override
+                    //Create view holder
                     public get_marks onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.marks_item, parent, false);
                         return new get_marks(view);

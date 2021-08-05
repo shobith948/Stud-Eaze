@@ -15,28 +15,28 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ShowActivity extends AppCompatActivity {
+public class ShowActivity extends AppCompatActivity {//Image show activity class
 
+    //user interface elements
     private RecyclerView recyclerView;
     private ArrayList<Model> list;
-
     private MyAdapter adapter;
 
-    private DatabaseReference root = FirebaseDatabase.getInstance().getReference("Image");
-
+    private DatabaseReference root = FirebaseDatabase.getInstance().getReference("Image");  //Gets a DatabaseReference for the database specified child node.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);  //called when activity is started, to perform initialisation
         setContentView(R.layout.activity_show);
 
+        //Finds a view that was identified by the android:id XML attribute that was processed in onCreate.
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<>();
         adapter = new MyAdapter(this , list);
         recyclerView.setAdapter(adapter);
-
+        //Adding model to list
         root.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

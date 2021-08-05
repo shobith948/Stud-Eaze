@@ -1,6 +1,6 @@
 package com.example.studeaze;
 
-class marks {
+class marks { //marks model class
     private String usn;
     private String c1;
     private String c2;
@@ -8,10 +8,11 @@ class marks {
     private String avg;
     private String attendance;
     private String SubCode;
+
     public  marks(){
 
     }
-
+    //constructor
     public marks(String SubCode, String usn, String c1, String c2, String c3,String avg,String attendance) {
         this.SubCode= SubCode;
         this.usn = usn;

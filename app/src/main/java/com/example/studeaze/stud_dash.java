@@ -19,16 +19,17 @@ import com.google.firebase.database.ValueEventListener;
 
 import io.paperdb.Paper;
 
-public class stud_dash extends AppCompatActivity implements View.OnClickListener{
+public class stud_dash extends AppCompatActivity implements View.OnClickListener{ //class for student dashboard
+    //user interface elements
     private TextView student_name;
     private CardView view_attendance, marks, notice, timetable;
     private Button logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);  //called when activity is started, to perform initialisation
         setContentView(R.layout.activity_stud_dash);
-
+        //Finds a view that was identified by the android:id XML attribute that was processed in onCreate.
         student_name = findViewById(R.id.S_text_name);
         view_attendance = (CardView) findViewById(R.id.view_attendance);
         marks = (CardView) findViewById(R.id.S_marks);
@@ -41,17 +42,20 @@ public class stud_dash extends AppCompatActivity implements View.OnClickListener
         notice.setOnClickListener(this);
         timetable.setOnClickListener(this);
 
-        Paper.init(this);
+        Paper.init(this);  //used to initialise session of user
 
+        //retrieving student session
         String UserUsnKey = Paper.book().read("usn");
         String UserPasswordKey = Paper.book().read("password");
 
+        //checking conditions to display student name in dashboard
         if(UserUsnKey != "" && UserPasswordKey != ""){
             if(!TextUtils.isEmpty(UserUsnKey) && !TextUtils.isEmpty(UserPasswordKey)){
                 studentNameDisplay(UserUsnKey, UserPasswordKey);
             }
         }
-        
+
+        //Register a callback to be invoked when this view is clicked. If this view is not clickable, it becomes clickable.
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +66,7 @@ public class stud_dash extends AppCompatActivity implements View.OnClickListener
         });
     }
 
+    //Function to display student name
     private void studentNameDisplay(String usn, String s_pass) {
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
@@ -75,7 +80,7 @@ public class stud_dash extends AppCompatActivity implements View.OnClickListener
                     if(studentsData.getUsn().equals(usn)){
                         if(studentsData.getPassword().equals(s_pass)){
                             String s_name = studentsData.getName();
-                            student_name.setText(s_name);
+                            student_name.setText(s_name); //setting text for the textView
                         }
                     }
                 }
@@ -88,6 +93,7 @@ public class stud_dash extends AppCompatActivity implements View.OnClickListener
         });
     }
 
+    //onClick event for card view in student dashboard
     @Override
     public void onClick(View view) {
         Intent i;

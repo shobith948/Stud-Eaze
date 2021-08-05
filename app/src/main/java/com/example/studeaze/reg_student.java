@@ -29,10 +29,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 public class reg_student extends AppCompatActivity {
-
+    //user interface elements
     private Button CreateAccountButton;
     private EditText InputName,Inputusn,Inputemail, InputPhonenumber, InputPassword, CInputPassword;
     long semester;
@@ -41,9 +40,10 @@ public class reg_student extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);  //called when activity is started, to perform initialisation
         setContentView(R.layout.activity_reg_student);
 
+        //Finds a view that was identified by the android:id XML attribute that was processed in onCreate.
         InputName = findViewById(R.id.name);
         Inputusn = findViewById(R.id.usn);
         InputPhonenumber = findViewById(R.id.phone);
@@ -53,8 +53,7 @@ public class reg_student extends AppCompatActivity {
         CreateAccountButton = findViewById(R.id.reg_s_btn);
         Spinner myspinner = (Spinner) findViewById(R.id.spinner1);
 
-
-
+        //List to hold semester selected through spinner
         List<String> item_list = new ArrayList<String>();
         item_list.add(0, "Sem 1");
         item_list.add(1 , "Sem 2");
@@ -65,13 +64,13 @@ public class reg_student extends AppCompatActivity {
         item_list.add(6 , "Sem 7");
         item_list.add(7 , "Sem 8");
 
-
-
+        //Adapter for spinner
         ArrayAdapter<String> arrayAdapter;
         arrayAdapter = new ArrayAdapter(this , android.R.layout.simple_spinner_item , item_list);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         myspinner.setAdapter(arrayAdapter);
 
+        //Item selection listener for spinner
         myspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -85,8 +84,7 @@ public class reg_student extends AppCompatActivity {
             }
         });
 
-        TextView textView = (TextView) findViewById(R.id.reg_head);
-
+        //Designing Student Register text
         String s = "Student Register";
         SpannableString ss1 = new SpannableString(s);
         ss1.setSpan(new RelativeSizeSpan(1.4f), 0, 8, 0); // set size
@@ -94,11 +92,13 @@ public class reg_student extends AppCompatActivity {
         TextView tv = (TextView) findViewById(R.id.reg_head);
         tv.setText(ss1);
 
+        //Register a callback to be invoked when this view is clicked. If this view is not clickable, it becomes clickable.
         CreateAccountButton.setOnClickListener(v -> {
             CreateAccount();
         });
     }
 
+    //Function to create student account
     private void CreateAccount()
             {
                 String name =InputName.getText().toString();
@@ -111,6 +111,7 @@ public class reg_student extends AppCompatActivity {
 
                 if(TextUtils.isEmpty(name))
                 {
+                    //A toast is a view containing a quick little message for the user.
                     Toast.makeText(reg_student.this, "Please Enter your name....", Toast.LENGTH_SHORT).show();
                 }
                 else
@@ -160,10 +161,11 @@ public class reg_student extends AppCompatActivity {
                 }
             }
 
+            //Function to validate and add details into firebase database
             private void ValidateUsn(final String name,final String phone, final String password, final String usn, final String email, long sem)
             {
                 final DatabaseReference RootRef;
-                RootRef= FirebaseDatabase.getInstance().getReference();
+                RootRef= FirebaseDatabase.getInstance().getReference(); //Gets a DatabaseReference for the database root node.
 
                 RootRef.addListenerForSingleValueEvent(new ValueEventListener()
                 {
@@ -172,7 +174,7 @@ public class reg_student extends AppCompatActivity {
                     {
                         if(!(dataSnapshot.child("students").child(usn).exists())) {
                             if (!(dataSnapshot.child("students").child(usn).child(phone).exists())) {
-                                HashMap<String, Object> studentsdataMap = new HashMap<>();
+                                HashMap<String, Object> studentsdataMap = new HashMap<>(); //Hashmap to store data into students child node in firebase
                                 studentsdataMap.put("phone", phone);
                                 studentsdataMap.put("password", password);
                                 studentsdataMap.put("name", name);
@@ -180,10 +182,11 @@ public class reg_student extends AppCompatActivity {
                                 studentsdataMap.put("email", email);
                                 studentsdataMap.put("semester", sem);
 
-                                RootRef.child("students").child(usn).updateChildren(studentsdataMap)
+                                RootRef.child("students").child(usn).updateChildren(studentsdataMap)  //Creating/Updating child node
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
+                                                //checking if updating task is successful or not
                                                 if (task.isSuccessful()) {
 
                                                     Toast.makeText(reg_student.this, "Congratulations your account is created successfully", Toast.LENGTH_SHORT).show();

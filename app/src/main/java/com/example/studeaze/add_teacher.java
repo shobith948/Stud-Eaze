@@ -31,25 +31,27 @@ import java.util.HashMap;
 import java.util.List;
 
 public class add_teacher extends AppCompatActivity {
+    //user interface elements
     private Button Addt;
     private EditText InputTname,InputSubcode, InputTemail, InputTphonenumber, InputTpassword, inputCTpassword;
     long semester;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);  //called when activity is started, to perform initialisation
         setContentView(R.layout.activity_add_teacher);
 
+        //Finds a view that was identified by the android:id XML attribute that was processed in onCreate.
         InputTname = findViewById(R.id.name);
         InputSubcode = findViewById(R.id.subcode);
         InputTphonenumber = findViewById(R.id.phone);
         InputTemail = findViewById(R.id.temail);
         InputTpassword = findViewById(R.id.tpaswword);
         inputCTpassword = findViewById(R.id.tcpassword);
-
         Addt = findViewById(R.id.reg_t_btn);
         Spinner myspinner = (Spinner) findViewById(R.id.spinner2);
 
+        //Designing Teacher Add text
         String s= "Teacher ADD";
         SpannableString ss1=  new SpannableString(s);
         ss1.setSpan(new RelativeSizeSpan(1.5f), 0,8, 0); // set size
@@ -57,6 +59,7 @@ public class add_teacher extends AppCompatActivity {
         TextView at= (TextView) findViewById(R.id.addt_head);
         at.setText(ss1);
 
+        //List to hold spinner items
         List<String> item_list = new ArrayList<String>();
         item_list.add(0, "Sem 1");
         item_list.add(1 , "Sem 2");
@@ -67,11 +70,13 @@ public class add_teacher extends AppCompatActivity {
         item_list.add(6 , "Sem 7");
         item_list.add(7 , "Sem 8");
 
+        //Adapter for spinner items
         ArrayAdapter<String> arrayAdapter;
         arrayAdapter = new ArrayAdapter(this , android.R.layout.simple_spinner_item , item_list);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         myspinner.setAdapter(arrayAdapter);
 
+        //Register a callback to be invoked when this view is clicked. If this view is not clickable, it becomes clickable.
         myspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -89,6 +94,7 @@ public class add_teacher extends AppCompatActivity {
         });
 
     }
+    //Function to create teacher account
     private void CreateTaccount()
     {
         String name = InputTname.getText().toString();
@@ -149,10 +155,11 @@ public class add_teacher extends AppCompatActivity {
             ValidateSubcode(name, phone, password , subcode , email , sem);
         }
     }
+    //Function to validate and update teacher data in firebase
     private void ValidateSubcode(final String name,final String phone, final String password, final String subcode, final String email, long sem)
     {
         final DatabaseReference RootRef;
-        RootRef= FirebaseDatabase.getInstance().getReference();
+        RootRef= FirebaseDatabase.getInstance().getReference(); //Gets a DatabaseReference for the database root node.
 
         RootRef.addListenerForSingleValueEvent(new ValueEventListener()
         {
@@ -161,7 +168,7 @@ public class add_teacher extends AppCompatActivity {
             {
                 if(!(dataSnapshot.child("teachers").child(subcode).exists())) {
                     if (!(dataSnapshot.child("teachers").child(subcode).child(phone).exists())) {
-                        HashMap<String, Object> teachersdataMap = new HashMap<>();
+                        HashMap<String, Object> teachersdataMap = new HashMap<>();  //Hashmap to store the data into teachers child node in firebase
                         teachersdataMap.put("phone", phone);
                         teachersdataMap.put("password", password);
                         teachersdataMap.put("name", name);
@@ -169,13 +176,14 @@ public class add_teacher extends AppCompatActivity {
                         teachersdataMap.put("email", email);
                         teachersdataMap.put("semester", sem);
 
-                        RootRef.child("teachers").child(subcode).updateChildren(teachersdataMap)
+                        RootRef.child("teachers").child(subcode).updateChildren(teachersdataMap)  //Creating/Updating child node
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
+                                        //checking if updating task is successful or not
                                         if (task.isSuccessful()) {
+                                            //A toast is a view containing a quick little message for the user.
                                             Toast.makeText(add_teacher.this, "Added successfully", Toast.LENGTH_SHORT).show();
-
                                             Intent intent = new Intent(add_teacher.this, admin.class);
                                             startActivity(intent);
                                         } else {

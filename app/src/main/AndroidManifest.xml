@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudEaze">
-        <activity android:name=".attendance_recycler"></activity>
+        <activity android:name=".attendance_recycler"/>
         <activity android:name=".marks_recycler" />
         <activity android:name=".add_marks" />
         <activity android:name=".image_upload" />
@@ -29,7 +29,6 @@
         <activity android:name=".admin" />
         <activity android:name=".login" />
         <activity android:name=".teach_login" />
-        <activity android:name=".MainActivity" />
         <activity android:name=".home" />
         <activity android:name=".splash_screen">
             <intent-filter>

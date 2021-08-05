@@ -1,6 +1,6 @@
 package com.example.studeaze;
 
-public class students
+public class students //StudentsModel class
 {
     private String name;
     private String password;
@@ -14,7 +14,7 @@ public class students
     public students(){
 
     }
-
+    //Constructor
     public students(String name, String password,String subcode, String email, String usn , long semester , String branch, String phone)
     {
         this.name = name;
@@ -26,7 +26,7 @@ public class students
         this.branch = branch;
         this.phone = phone;
     }
-
+    //getter and setter
     public String getName()
     {
         return name;

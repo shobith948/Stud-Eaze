@@ -95,22 +95,12 @@
             android:textColorHint="#AA00FF"
             android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/tforgot"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:fontFamily="@font/poppins_light"
-            android:layout_marginTop="10dp"
-            android:text="Forgot Password ?" />
-
-
         <Button
             android:id="@+id/tlogin_btn"
             android:layout_width="150dp"
             android:layout_height="55dp"
             android:layout_marginLeft="225dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/login_btn"
             android:fontFamily="@font/poppins_semibold"
             android:text="Login"

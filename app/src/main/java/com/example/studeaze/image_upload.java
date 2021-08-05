@@ -21,32 +21,31 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-public class image_upload extends AppCompatActivity {
+public class image_upload extends AppCompatActivity { //class for uploading image
 
     //widgets
-
     private Button uploadBtn, showAllBtn,chooseBtn;
     private ImageView imageView;
     private ContentLoadingProgressBar progressBar;
 
     //vars
-    private DatabaseReference root = FirebaseDatabase.getInstance().getReference("Image");
-    private StorageReference reference = FirebaseStorage.getInstance().getReference();
+    private DatabaseReference root = FirebaseDatabase.getInstance().getReference("Image"); //Gets a DatabaseReference for the database specified child node.
+    private StorageReference reference = FirebaseStorage.getInstance().getReference(); //Gets a StorageReference for the database root node.
     private Uri imageUri;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_upload);
 
-
+        //Finds a view that was identified by the android:id XML attribute that was processed in onCreate.
         uploadBtn = findViewById(R.id.upload_btn);
         showAllBtn = findViewById(R.id.showall_btn);
         //progressBar = findViewById(R.id.progressBar);
         chooseBtn = findViewById(R.id.button_choose_image);
         imageView = findViewById(R.id.imageView);
-
         // progressBar.setVisibility(View.INVISIBLE);
 
+        //Register a callback to be invoked when this view is clicked. If this view is not clickable, it becomes clickable.
         showAllBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +62,6 @@ public class image_upload extends AppCompatActivity {
                 startActivityForResult(galleryIntent , 2);
             }
         });
-
 
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,7 +80,7 @@ public class image_upload extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode ==2 && resultCode == RESULT_OK && data != null){
-
+            //getting image data
             imageUri = data.getData();
             imageView.setImageURI(imageUri);
 
@@ -124,6 +122,7 @@ public class image_upload extends AppCompatActivity {
 //        });
     }
 
+    //Function to get file extension
     private String getFileExtension(Uri mUri){
 
         ContentResolver cr = getContentResolver();

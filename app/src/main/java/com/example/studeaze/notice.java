@@ -1,6 +1,6 @@
 package com.example.studeaze;
 
-class notice {
+class notice { //notice model class
     private String date;
     private String time;
     private String note_head;
@@ -9,14 +9,14 @@ class notice {
     public  notice(){
 
     }
-
+    //Constructor
     public notice(String date, String time, String note_head, String note_desc) {
         this.date = date;
         this.time = time;
         this.note_head = note_head;
         this.note_desc = note_desc;
     }
-
+    //Getter and setter
     public String getDate() {
         return date;
     }

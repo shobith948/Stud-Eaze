@@ -9,21 +9,34 @@
     <LinearLayout
         android:id="@+id/lay1"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="180dp"
         android:orientation="vertical"
-        android:background="@drawable/home_design"/>
+        android:background="@drawable/home_design">
 
-    <TextView
-        android:id="@+id/T_text_name_marks"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="35dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Marks"
-        android:textColor="#fff"
-        android:textSize="45sp"
-        android:textStyle="bold" />
+
+
+
+        <TextView
+            android:id="@+id/T_text_name_marks"
+            android:layout_width="363dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:lineSpacingExtra="-35dp"
+            android:text="Academic score "
+            android:textColor="#fff"
+            android:textSize="45sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="350dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="-200dp"
+            android:layout_height="350dp"
+            android:src="@drawable/score"/>
+
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,7 +46,7 @@
     </LinearLayout>
 
     <TextView
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginRight="-3dp"
         android:layout_marginBottom="-2dp"
         android:id="@+id/usn_head"
@@ -97,7 +110,7 @@
 
     <TextView
         android:id="@+id/avg"
-        android:layout_marginRight="-3dp"
+        android:layout_marginRight="10dp"
         android:layout_marginBottom="-2dp"
         android:layout_width="85dp"
         android:layout_height="55dp"

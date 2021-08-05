@@ -1,9 +1,13 @@
 package com.example.studeaze;
 
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,9 +29,16 @@ public class attendance_recycler extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance_recycler);
-
+        TextView textView = (TextView) findViewById(R.id.T_text_name_attendence);
         Paper.init(this);
         usn = Paper.book().read("usn");
+
+        String s= "Attendence View";
+        SpannableString ss1=  new SpannableString(s);
+        ss1.setSpan(new RelativeSizeSpan(1.5f), 0,10, 0); // set size
+        ss1.setSpan(new ForegroundColorSpan(R.drawable.home_btn), 0, 10, 0);// set color
+        TextView tv= (TextView) findViewById(R.id.T_text_name_attendence);
+        tv.setText(ss1);
 
         a_recyclerView = findViewById(R.id.attendance_recycler);
         a_recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -48,7 +59,7 @@ public class attendance_recycler extends AppCompatActivity {
                     @Override
                     protected void onBindViewHolder(@NonNull get_attendance holder, int position, @NonNull marks model) {
                         holder.usn.setText("" + model.getSubCode());
-                        holder.attendance.setText("" + model.getAttendance());
+                        holder.attendance.setText("" + model.getAttendance()+"%");
                     }
 
                     @NonNull

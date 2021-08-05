@@ -11,7 +11,7 @@
         android:layout_marginRight="-3dp"
         android:layout_marginBottom="-2dp"
         android:gravity="center"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="10dp"
         android:background="@drawable/marks_border"
         android:fontFamily="@font/poppins_semibold"
         android:textAlignment="center"
@@ -27,7 +27,7 @@
         android:background="@drawable/marks_border"
         android:textStyle="bold"
         android:textAlignment="center"
-        android:fontFamily="@font/poppins_semibold"
+        android:fontFamily="@font/poppins_light"
         android:layout_toEndOf="@+id/usn_head"/>
 
     <TextView
@@ -40,7 +40,7 @@
         android:textStyle="bold"
         android:textAlignment="center"
         android:background="@drawable/marks_border"
-        android:fontFamily="@font/poppins_semibold"
+        android:fontFamily="@font/poppins_light"
         android:layout_toEndOf="@+id/test1" />
 
     <TextView
@@ -52,13 +52,12 @@
         android:layout_height="55dp"
         android:textStyle="bold"
         android:background="@drawable/marks_border"
-        android:textAlignment="center"
-        android:fontFamily="@font/poppins_semibold"
+        android:fontFamily="@font/poppins_light"
         android:layout_toEndOf="@+id/test2" />
 
     <TextView
         android:id="@+id/avg"
-        android:layout_marginRight="-3dp"
+        android:layout_marginRight="10dp"
         android:layout_marginBottom="-2dp"
         android:gravity="center"
         android:layout_width="85dp"

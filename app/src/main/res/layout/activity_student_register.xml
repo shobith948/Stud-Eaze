@@ -4,23 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddTeacherActivity">
+    tools:context=".StudentRegisterActivity">
+
 
     <LinearLayout
-        android:id="@+id/addt_text"
+        android:id="@+id/reg_text"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/addt_head"
+            android:id="@+id/reg_head"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="25dp"
             android:fontFamily="@font/poppins_semibold"
-            android:text="Teacher"
+            android:text="Student"
             android:textColor="#2c2a40"
             android:textSize="36sp"
             android:textStyle="bold" />
@@ -28,7 +29,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_below="@+id/addt_text"
+        android:layout_below="@+id/reg_text"
         android:background="@drawable/card_view"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
@@ -55,19 +56,19 @@
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/subcode"
+            android:id="@+id/usn"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/view"
+            android:inputType="textCapCharacters"
             android:drawableStart="@drawable/ic_baseline_vpn_key_24"
             android:drawablePadding="10dp"
             android:ems="10"
             android:fontFamily="@font/poppins_light"
-            android:hint="Subject code"
+            android:hint="USN"
             android:includeFontPadding="true"
-            android:inputType="textCapCharacters"
             android:lineSpacingExtra="15dp"
             android:paddingStart="15dp"
             android:textAllCaps="true"
@@ -98,9 +99,9 @@
 
         <TextView
             android:id="@+id/textView9"
-            android:layout_width="361dp"
-            android:layout_height="37dp"
-            android:layout_marginLeft="35dp"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/poppins_light"
             android:text="Semester"
@@ -108,14 +109,14 @@
             android:textSize="25sp" />
 
         <Spinner
-            android:id="@+id/spinner2"
+            android:id="@+id/spinner1"
             android:layout_width="100dp"
-            android:layout_height="41dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="25dp"
             android:background="@drawable/home_btn" />
 
         <EditText
-            android:id="@+id/temail"
+            android:id="@+id/email"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_marginLeft="25dp"
@@ -135,7 +136,7 @@
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/tpaswword"
+            android:id="@+id/password"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_marginLeft="25dp"
@@ -155,7 +156,7 @@
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/tcpassword"
+            android:id="@+id/cpassword"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_marginLeft="25dp"
@@ -165,9 +166,9 @@
             android:drawablePadding="10dp"
             android:ems="10"
             android:fontFamily="@font/poppins_light"
-            android:hint="Confirm Pasword"
-            android:includeFontPadding="true"
+            android:hint="Confirm Password"
             android:inputType="textPassword"
+            android:includeFontPadding="true"
             android:lineSpacingExtra="15dp"
             android:paddingStart="15dp"
             android:textColor="#AA00FF"
@@ -175,14 +176,14 @@
             android:textSize="24sp" />
 
         <Button
-            android:id="@+id/reg_t_btn"
+            android:id="@+id/reg_s_btn"
             android:layout_width="150dp"
             android:layout_height="55dp"
-            android:layout_marginLeft="220dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="225dp"
+            android:layout_marginTop="25dp"
             android:background="@drawable/login_btn"
             android:fontFamily="@font/poppins_semibold"
-            android:text="add "
+            android:text="Register"
             android:textColor="@color/white" />
 
     </LinearLayout>

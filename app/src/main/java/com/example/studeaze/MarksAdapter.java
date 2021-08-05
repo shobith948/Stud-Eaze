@@ -1,9 +1,13 @@
 package com.example.studeaze;
 
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +32,13 @@ public class MarksAdapter extends AppCompatActivity { //class for marks recycler
 
         Paper.init(this);  //used to initialise session of user
         usn = Paper.book().read("usn");
+
+        String s= "Academic score";
+        SpannableString ss1=  new SpannableString(s);
+        ss1.setSpan(new RelativeSizeSpan(1.5f), 0,10, 0); // set size
+        ss1.setSpan(new ForegroundColorSpan(R.drawable.home_btn), 0, 9, 0);// set color
+        TextView tv= (TextView) findViewById(R.id.T_text_name_marks);
+        tv.setText(ss1);
 
         recyclerView = findViewById(R.id.marks_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

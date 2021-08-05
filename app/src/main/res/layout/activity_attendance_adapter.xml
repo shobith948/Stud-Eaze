@@ -9,18 +9,19 @@
     <LinearLayout
         android:id="@+id/a_lay1"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:orientation="vertical"
         android:background="@drawable/home_design"/>
 
     <TextView
         android:id="@+id/T_text_name_attendance"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_width="348dp"
+        android:layout_height="126dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="35dp"
         android:fontFamily="@font/poppins_semibold"
-        android:text="Attendance"
+        android:lineSpacingExtra="-15dp"
+        android:text="Attendance View"
         android:textColor="#fff"
         android:textSize="45sp"
         android:textStyle="bold" />
@@ -62,7 +63,6 @@
         android:layout_marginTop="50dp"
         android:gravity="center"
         android:layout_toEndOf="@+id/a_usn_head" />
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/attendance_recycler"

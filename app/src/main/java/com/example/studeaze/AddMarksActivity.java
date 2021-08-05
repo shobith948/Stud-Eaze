@@ -103,10 +103,6 @@ public class AddMarksActivity extends AppCompatActivity { //class for the teache
                 marksdataMap.put("attendance", attendance);
                 marksdataMap.put("SubCode", SubCode);
 
-                //To get values from studentsModel class
-                UsersModel studentData = dataSnapshot.child("students").child(usn).getValue(UsersModel.class);
-                UsersModel teacherData = dataSnapshot.child("teachers").child(SubCode).getValue(UsersModel.class);
-
                     RootRef.child(usn).child(SubCode).updateChildren(marksdataMap) //Creating/Updating child node
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override

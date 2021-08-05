@@ -1,9 +1,13 @@
 package com.example.studeaze;
 
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +34,13 @@ public class AttendanceAdapter extends AppCompatActivity {
         Paper.init(this);  //used to initialise session of user
         usn = Paper.book().read("usn");
 
+        String s= "Attendence View";
+        SpannableString ss1=  new SpannableString(s);
+        ss1.setSpan(new RelativeSizeSpan(1.5f), 0,10, 0); // set size
+        ss1.setSpan(new ForegroundColorSpan(R.drawable.home_btn), 0, 10, 0);// set color
+        TextView tv= (TextView) findViewById(R.id.T_text_name_attendance);
+        tv.setText(ss1);
+
         //Finds a view that was identified by the android:id XML attribute that was processed in onCreate.
         a_recyclerView = findViewById(R.id.attendance_recycler);
         a_recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -50,7 +61,7 @@ public class AttendanceAdapter extends AppCompatActivity {
                     @Override
                     protected void onBindViewHolder(@NonNull AttendanceViewHolder holder, int position, @NonNull MarksModel model) {
                         holder.usn.setText("" + model.getSubCode());
-                        holder.attendance.setText("" + model.getAttendance());
+                        holder.attendance.setText("" + model.getAttendance()+"%");
                     }
 
                     @NonNull

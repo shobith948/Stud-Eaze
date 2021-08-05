@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudEaze">
-        <activity android:name=".AttendanceAdapter"/>
+        <activity android:name=".AttendanceAdapter" />
         <activity android:name=".MarksAdapter" />
         <activity android:name=".AddMarksActivity" />
         <activity android:name=".ImageActivity" />
